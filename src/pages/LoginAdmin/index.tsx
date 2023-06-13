@@ -1,9 +1,7 @@
-const LoginAdmin = () => {
+export const LoginAdmin = (): JSX.Element => {
   return (
     <>
       <p>LoginAdmin</p>
     </>
   );
 };
-
-export default LoginAdmin;
