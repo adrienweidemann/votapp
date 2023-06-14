@@ -17,7 +17,7 @@ function App() {
         <Route path="/" element={<Home />} />
       </Route>
       <Route element={<ProtectedRoute roles={["admin"]} redirectPath="*" />}>
-        <Route path="admin" element={<Admin />} />
+        <Route path="/admin" element={<Admin />} />
       </Route>
       <Route path="/login" element={<Login />} />
       <Route path="/login-admin" element={<LoginAdmin />} />
