@@ -1,21 +1,27 @@
+import { useNavigate } from "react-router-dom";
 import { FormProvider, useForm } from "react-hook-form";
 import { LockClosedIcon } from "@heroicons/react/24/outline";
 
 import { Input } from "@components/Form/Input";
+import { useAuth } from "@hooks/useAuth";
 
 type Inputs = {
   email: string;
   password: string;
 };
 
-const onSubmit = (data: unknown) => {
-  console.log(data);
-};
-
 export const LoginForm = ({ redirectTo }: { redirectTo: string }): JSX.Element => {
-  const methods = useForm<Inputs>();
+  const methods = useForm<Inputs>({ mode: "onChange" });
+  const navigate = useNavigate();
+  const { login } = useAuth();
 
-  const { errors } = methods.formState;
+  const { errors, isValid } = methods.formState;
+
+  const onSubmit = (data: Inputs) => {
+    // TODO - API call
+    login({ id: 1, name: "Adrien W.", token: "abcde", role: "admin" });
+    navigate(redirectTo);
+  };
 
   return (
     <FormProvider {...methods}>
@@ -30,17 +36,22 @@ export const LoginForm = ({ redirectTo }: { redirectTo: string }): JSX.Element =
 
         <div className="place-items-left">
           <Input label="Email address" type="text" name="email" placeholder="Email" />
-          <p>{errors.email?.message}</p>
+          {errors.email?.message && (
+            <p className="text-red-700 text-sm px-4 py-3">{errors.email?.message}</p>
+          )}
         </div>
 
         <div className="place-items-left">
           <Input label="Password" type="password" name="password" placeholder="Password" />
-          <p>{errors.password?.message}</p>
+          {errors.password?.message && (
+            <p className="text-red-700 text-sm px-4 py-3">{errors.password?.message}</p>
+          )}{" "}
         </div>
 
         <button
           type="submit"
-          className="w-full text-white bg-primary-500 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm py-2.5 text-center">
+          disabled={!isValid}
+          className="w-full text-white bg-primary-500 hover:bg-primary-700 disabled:bg-primary-500/25 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm py-2.5 text-center">
           Sign In
         </button>
         <div>

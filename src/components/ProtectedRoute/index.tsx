@@ -1,7 +1,7 @@
 import { Navigate, Outlet } from "react-router-dom";
 import { useAuth } from "@hooks/useAuth";
 
-import { UserRole } from "@types/models/user.types";
+import { UserRole } from "@definitions/models/user";
 
 interface Props {
   roles?: UserRole[];

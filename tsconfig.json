@@ -27,7 +27,7 @@
       "@configs/*": ["./src/configs/*"],
       "@pages/*": ["./src/pages/*"],
       "@hooks/*": ["./src/hooks/*"],
-      "@types/*": ["./src/types/*"]
+      "@definitions/*": ["./src/definitions/*"]
     }
   },
   "include": ["src"],
