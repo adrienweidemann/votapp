@@ -1,0 +1,32 @@
+{
+  "PAGES": {
+    "NOTFOUND": {
+      "TEXT": "Page non trouvée."
+    }
+  },
+  "FORM": {
+    "TITLE": "CONNEXION",
+    "INPUT": {
+      "ERROR": {
+        "REQUIRED": "Veuillez remplir ce champ"
+      }
+    },
+    "LOGINFORM": {
+      "INPUT": {
+        "EMAIL": {
+          "TITLE": "Email",
+          "PLACEHOLDER": "Email"
+        },
+        "PASSWORD": {
+          "TITLE": "Mot de passe",
+          "PLACEHOLDER": "Mot de passe"
+        }
+      },
+      "BUTTON": {
+        "SUBMIT": {
+          "TEXT": "Connexion"
+        }
+      }
+    }
+  }
+}

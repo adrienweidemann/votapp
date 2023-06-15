@@ -9,10 +9,6 @@
 
 > Votapp - React + Vite app
 
-## TODO
-
-- TO DO
-
 ## Prerequisites
 
 - node 18

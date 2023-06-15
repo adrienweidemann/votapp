@@ -1,5 +1,6 @@
 import { useId } from "react";
 import { useFormContext } from "react-hook-form";
+import { useTranslation } from "react-i18next";
 
 interface Props {
   label: string;
@@ -11,6 +12,7 @@ interface Props {
 
 export const Input = ({ label, type, name, placeholder, required }: Props): JSX.Element => {
   const { register } = useFormContext();
+  const { t } = useTranslation();
   const id = useId();
 
   return (
@@ -24,8 +26,8 @@ export const Input = ({ label, type, name, placeholder, required }: Props): JSX.
         placeholder={placeholder}
         {...register(name, {
           required: {
-            value: true,
-            message: "This field is required"
+            value: required || false,
+            message: t("FORM.INPUT.ERROR.REQUIRED")
           }
         })}
         maxLength={100}

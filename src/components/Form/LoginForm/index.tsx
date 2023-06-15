@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { FormProvider, useForm } from "react-hook-form";
+import { useTranslation } from "react-i18next";
 import { LockClosedIcon } from "@heroicons/react/24/outline";
 
 import { Input } from "@components/Form/Input";
@@ -13,12 +14,13 @@ type Inputs = {
 export const LoginForm = ({ redirectTo }: { redirectTo: string }): JSX.Element => {
   const methods = useForm<Inputs>({ mode: "onChange" });
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const { login } = useAuth();
 
   const { errors, isValid } = methods.formState;
 
   const onSubmit = (data: Inputs) => {
-    // TODO - API call
+    // TODO - API call and use data in order to query it
     login({ id: 1, name: "Adrien W.", token: "abcde", role: "admin" });
     navigate(redirectTo);
   };
@@ -31,18 +33,30 @@ export const LoginForm = ({ redirectTo }: { redirectTo: string }): JSX.Element =
         </div>
 
         <div className="text-2xl text-gray-900 font-semibold">
-          <h2 className="text-secondary-300">Sign in</h2>
+          <h2 className="text-secondary-300">{t("FORM.LOGINFORM.TITLE")}</h2>
         </div>
 
         <div className="place-items-left">
-          <Input label="Email address" type="text" name="email" placeholder="Email" />
+          <Input
+            label={t("tamer")}
+            type="text"
+            name="email"
+            placeholder={t("FORM.LOGINFORM.INPUT.EMAIL.PLACEHOLDER")}
+            required
+          />
           {errors.email?.message && (
             <p className="text-red-700 text-sm px-4 py-3">{errors.email?.message}</p>
           )}
         </div>
 
         <div className="place-items-left">
-          <Input label="Password" type="password" name="password" placeholder="Password" />
+          <Input
+            label={t("FORM.LOGINFORM.INPUT.PASSWORD.TITLE")}
+            type="password"
+            name="password"
+            placeholder={t("FORM.LOGINFORM.INPUT.PASSWORD.PLACEHOLDER")}
+            required
+          />
           {errors.password?.message && (
             <p className="text-red-700 text-sm px-4 py-3">{errors.password?.message}</p>
           )}{" "}
@@ -52,7 +66,7 @@ export const LoginForm = ({ redirectTo }: { redirectTo: string }): JSX.Element =
           type="submit"
           disabled={!isValid}
           className="w-full text-white bg-primary-500 hover:bg-primary-700 disabled:bg-primary-500/25 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm py-2.5 text-center">
-          Sign In
+          {t(t("FORM.LOGINFORM.BUTTON.SUBMIT.LABEL"))}
         </button>
         <div>
           <a href="#" className="text-sm font-medium text-gray">
