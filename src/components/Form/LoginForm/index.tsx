@@ -18,7 +18,7 @@ export const LoginForm = ({ redirectTo }: { redirectTo: string }): JSX.Element =
 
   const { errors, isValid } = methods.formState;
 
-  const onSubmit = (dataa: Inputs) => {
+  const onSubmit = (_data: Inputs) => {
     // TODO - API call and use data in order to query it
     login({ id: 1, name: "Adrien W.", token: "abcde", role: "admin" });
     navigate(redirectTo);
