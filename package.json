@@ -1,8 +1,8 @@
 {
   "name": "votapp",
+  "private": true,
   "description": "React + Vite app",
   "author": "WEIDEMANN HAEFFELE Adrien",
-  "private": true,
   "version": "0.1.0",
   "type": "module",
   "scripts": {
@@ -14,6 +14,12 @@
   },
   "engines": {
     "node": "^18"
+  },
+  "lint-staged": {
+    "*.{js,ts}": [
+      "npm run lint",
+      "prettier --write"
+    ]
   },
   "repository": {
     "type": "git",
