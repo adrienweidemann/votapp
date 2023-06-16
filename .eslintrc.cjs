@@ -15,16 +15,14 @@ module.exports = {
   ],
   parser: "@typescript-eslint/parser",
   parserOptions: { ecmaVersion: "latest", sourceType: "module" },
-  plugins: ["react-refresh", "simple-import-sort", "prettier"],
+  plugins: ["react-refresh", "prettier"],
   rules: {
     "no-unused-vars": "off",
     "@typescript-eslint/no-unused-vars": ["error", { argsIgnorePattern: "^_" }],
     "react/react-in-jsx-scope": "off",
     "react/jsx-uses-react": "off",
     "react-refresh/only-export-components": "warn",
-    "prettier/prettier": ["error", {}, { usePrettierrc: true }],
-    "simple-import-sort/imports": "error",
-    "simple-import-sort/exports": "error",
+    "prettier/prettier": ["error", { endOfLine: "auto" }, { usePrettierrc: true }],
     "jsx-a11y/anchor-is-valid": [
       "error",
       {

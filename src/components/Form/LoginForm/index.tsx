@@ -3,7 +3,7 @@ import { FormProvider, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { Input } from "@components/Form/Input";
-import { useAuth } from "@hooks/useAuth";
+import { useAuth } from "@hooks/Auth/useAuth";
 
 type Inputs = {
   email: string;
@@ -18,7 +18,7 @@ export const LoginForm = ({ redirectTo }: { redirectTo: string }): JSX.Element =
 
   const { errors, isValid } = methods.formState;
 
-  const onSubmit = (data: Inputs) => {
+  const onSubmit = (_data: Inputs) => {
     // TODO - API call and use data in order to query it
     login({ id: 1, name: "Adrien W.", token: "abcde", role: "admin" });
     navigate(redirectTo);
@@ -68,7 +68,7 @@ export const LoginForm = ({ redirectTo }: { redirectTo: string }): JSX.Element =
           {t("FORM.LOGIN_FORM.BUTTON.SUBMIT.LABEL")}
         </button>
         <div>
-          <a href="#" className="text-sm font-medium text-gray">
+          <a href="/#" className="text-sm font-medium text-gray">
             Made with ❤️ at Strasbourg
           </a>
         </div>

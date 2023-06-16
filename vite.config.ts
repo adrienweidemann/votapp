@@ -8,10 +8,6 @@ export default defineConfig({
   resolve: {
     alias: [
       {
-        find: "@root",
-        replacement: fileURLToPath(new URL("./src", import.meta.url))
-      },
-      {
         find: "@components",
         replacement: fileURLToPath(new URL("./src/components", import.meta.url))
       },
@@ -24,6 +20,10 @@ export default defineConfig({
       {
         find: "@definitions",
         replacement: fileURLToPath(new URL("./src/definitions", import.meta.url))
+      },
+      {
+        find: "@root",
+        replacement: fileURLToPath(new URL("./src", import.meta.url))
       }
     ]
   }

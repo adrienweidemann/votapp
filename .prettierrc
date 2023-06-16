@@ -4,13 +4,5 @@
   "singleQuote": false,
   "bracketSameLine": true,
   "trailingComma": "none",
-  "importOrder": [
-    "^@root/(.*)$",
-    "^@components/(.*)$",
-    "^@hooks/(.*)$",
-    "^@pages/(.*)$",
-    "^@definitions/(.*)$",
-    "^@configs/(.*)$"
-  ],
   "importOrderSeparation": false
 }

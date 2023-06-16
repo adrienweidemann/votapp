@@ -1,7 +1,9 @@
+import { Loader } from "@components/Loader";
+
 export const Home = (): JSX.Element => {
   return (
     <>
-      <p>Home</p>
+      <Loader />
     </>
   );
 };

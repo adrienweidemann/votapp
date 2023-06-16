@@ -1,6 +1,6 @@
 import { Navigate } from "react-router-dom";
 import { LoginForm } from "@components/Form/LoginForm";
-import { useAuth } from "@hooks/useAuth";
+import { useAuth } from "@hooks/Auth/useAuth";
 import { USER } from "@configs/models";
 
 const REDIRECT_PATH = "/admin";
