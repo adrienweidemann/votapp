@@ -16,7 +16,7 @@
     "node": "^18"
   },
   "lint-staged": {
-    "*.{js, jsx, ts, tsx}": [
+    "*.{js,jsx,ts,tsx,html}": [
       "npm run lint",
       "prettier --write"
     ]
