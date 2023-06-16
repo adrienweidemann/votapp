@@ -1,9 +1,7 @@
+import { useLocalStorage } from "./useLocalStorage";
 import { createContext, useContext, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
-
-import { AuthenticatedUser } from "@types/models/user.types";
-
-import { useLocalStorage } from "./useLocalStorage";
+import { AuthenticatedUser } from "@definitions/models/user";
 
 interface ProvideAuthContext {
   user: AuthenticatedUser | null;

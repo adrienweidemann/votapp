@@ -5,7 +5,7 @@ export const NotFound = (): JSX.Element => {
 
   return (
     <>
-      <p>{t("PAGES.NOTFOUND.TEXT")}</p>
+      <p>{t("PAGES.NOT_FOUND.TEXT")}</p>
     </>
   );
 };

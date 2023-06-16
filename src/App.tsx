@@ -1,11 +1,8 @@
 import { Route, Routes } from "react-router-dom";
-
-import "./App.css";
-
+import "@root/App.css";
 import { ProtectedRoute } from "@components/ProtectedRoute";
-
-import { Home } from "@pages/Home";
 import { Admin } from "@pages/Admin";
+import { Home } from "@pages/Home";
 import { Login } from "@pages/Login";
 import { LoginAdmin } from "@pages/LoginAdmin";
 import { NotFound } from "@pages/NotFound";

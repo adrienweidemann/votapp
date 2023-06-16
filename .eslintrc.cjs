@@ -1,8 +1,12 @@
 module.exports = {
+  settings: {
+    react: {
+      version: "detect"
+    }
+  },
   env: { browser: true, es2020: true },
   extends: [
     "eslint:recommended",
-    "plugin:@ -eslint/recommended",
     "plugin:react-hooks/recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
@@ -13,6 +17,10 @@ module.exports = {
   parserOptions: { ecmaVersion: "latest", sourceType: "module" },
   plugins: ["react-refresh", "simple-import-sort", "prettier"],
   rules: {
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": ["error", { argsIgnorePattern: "^_" }],
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-uses-react": "off",
     "react-refresh/only-export-components": "warn",
     "prettier/prettier": ["error", {}, { usePrettierrc: true }],
     "simple-import-sort/imports": "error",

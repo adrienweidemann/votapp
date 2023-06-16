@@ -3,5 +3,14 @@
   "tabWidth": 2,
   "singleQuote": false,
   "bracketSameLine": true,
-  "trailingComma": "none"
+  "trailingComma": "none",
+  "importOrder": [
+    "^@root/(.*)$",
+    "^@components/(.*)$",
+    "^@hooks/(.*)$",
+    "^@pages/(.*)$",
+    "^@definitions/(.*)$",
+    "^@configs/(.*)$"
+  ],
+  "importOrderSeparation": false
 }

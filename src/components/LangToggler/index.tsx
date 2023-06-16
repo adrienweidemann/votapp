@@ -1,7 +1,6 @@
 import { useTranslation } from "react-i18next";
-
-import { LANG } from "@configs/global";
 import { Lang } from "@definitions/global";
+import { LANG } from "@configs/global";
 
 export const LangToggler = () => {
   /*

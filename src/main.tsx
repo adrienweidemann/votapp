@@ -1,12 +1,9 @@
 import React, { Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
-
-import "./index.css";
-import App from "./App.tsx";
-
-import "./i18n";
-
+import App from "@root/App.tsx";
+import "@root/i18n";
+import "@root/index.css";
 import { AuthProvider } from "@hooks/useAuth.tsx";
 
 const Loader = () => (
@@ -18,12 +15,12 @@ const Loader = () => (
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <Suspense fallback={<Loader />}>
-      <BrowserRouter>
-        <AuthProvider>
+    <BrowserRouter>
+      <AuthProvider>
+        <Suspense fallback={<Loader />}>
           <App />
-        </AuthProvider>
-      </BrowserRouter>
-    </Suspense>
+        </Suspense>
+      </AuthProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );

@@ -1,6 +1,5 @@
 import { Navigate, Outlet } from "react-router-dom";
 import { useAuth } from "@hooks/useAuth";
-
 import { UserRole } from "@definitions/models/user";
 
 interface Props {

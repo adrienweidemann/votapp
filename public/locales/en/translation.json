@@ -1,31 +1,30 @@
 {
-  "tamer": "tonper",
   "PAGE": {
-    "NOTFOUND": {
+    "NOT_FOUND": {
       "TEXT": "Page not found."
     }
   },
   "FORM": {
-    "TITLE": "SIGN IN",
     "INPUT": {
       "ERROR": {
         "REQUIRED": "This field is required"
       }
     },
-    "LOGINFORM": {
+    "LOGIN_FORM": {
+      "TITLE": "SIGN IN",
       "INPUT": {
         "EMAIL": {
           "TITLE": "Email address",
-          "PLACEHOLDER": "Email"
+          "PLACEHOLDER": "Email *"
         },
         "PASSWORD": {
           "TITLE": "Password",
-          "PLACEHOLDER": "Password"
+          "PLACEHOLDER": "Password *"
         }
       },
       "BUTTON": {
         "SUBMIT": {
-          "TEXT": "Sign in"
+          "LABEL": "Sign in"
         }
       }
     }

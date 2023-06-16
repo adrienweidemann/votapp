@@ -1,8 +1,7 @@
-import { useNavigate } from "react-router-dom";
+import { LockClosedIcon } from "@heroicons/react/24/outline";
 import { FormProvider, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
-import { LockClosedIcon } from "@heroicons/react/24/outline";
-
+import { useNavigate } from "react-router-dom";
 import { Input } from "@components/Form/Input";
 import { useAuth } from "@hooks/useAuth";
 
@@ -33,15 +32,15 @@ export const LoginForm = ({ redirectTo }: { redirectTo: string }): JSX.Element =
         </div>
 
         <div className="text-2xl text-gray-900 font-semibold">
-          <h2 className="text-secondary-300">{t("FORM.LOGINFORM.TITLE")}</h2>
+          <h2 className="text-secondary-300">{t("FORM.LOGIN_FORM.TITLE")}</h2>
         </div>
 
         <div className="place-items-left">
           <Input
-            label={t("tamer")}
+            label={t("FORM.LOGIN_FORM.INPUT.PASSWORD.TITLE")}
             type="text"
             name="email"
-            placeholder={t("FORM.LOGINFORM.INPUT.EMAIL.PLACEHOLDER")}
+            placeholder={t("FORM.LOGIN_FORM.INPUT.EMAIL.PLACEHOLDER")}
             required
           />
           {errors.email?.message && (
@@ -51,10 +50,10 @@ export const LoginForm = ({ redirectTo }: { redirectTo: string }): JSX.Element =
 
         <div className="place-items-left">
           <Input
-            label={t("FORM.LOGINFORM.INPUT.PASSWORD.TITLE")}
+            label={t("FORM.LOGIN_FORM.INPUT.PASSWORD.TITLE")}
             type="password"
             name="password"
-            placeholder={t("FORM.LOGINFORM.INPUT.PASSWORD.PLACEHOLDER")}
+            placeholder={t("FORM.LOGIN_FORM.INPUT.PASSWORD.PLACEHOLDER")}
             required
           />
           {errors.password?.message && (
@@ -66,7 +65,7 @@ export const LoginForm = ({ redirectTo }: { redirectTo: string }): JSX.Element =
           type="submit"
           disabled={!isValid}
           className="w-full text-white bg-primary-500 hover:bg-primary-700 disabled:bg-primary-500/25 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm py-2.5 text-center">
-          {t(t("FORM.LOGINFORM.BUTTON.SUBMIT.LABEL"))}
+          {t("FORM.LOGIN_FORM.BUTTON.SUBMIT.LABEL")}
         </button>
         <div>
           <a href="#" className="text-sm font-medium text-gray">

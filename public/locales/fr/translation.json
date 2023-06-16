@@ -1,30 +1,30 @@
 {
   "PAGES": {
-    "NOTFOUND": {
+    "NOT_FOUND": {
       "TEXT": "Page non trouvée."
     }
   },
   "FORM": {
-    "TITLE": "CONNEXION",
     "INPUT": {
       "ERROR": {
         "REQUIRED": "Veuillez remplir ce champ"
       }
     },
-    "LOGINFORM": {
+    "LOGIN_FORM": {
+      "TITLE": "CONNEXION",
       "INPUT": {
         "EMAIL": {
           "TITLE": "Email",
-          "PLACEHOLDER": "Email"
+          "PLACEHOLDER": "Email *"
         },
         "PASSWORD": {
           "TITLE": "Mot de passe",
-          "PLACEHOLDER": "Mot de passe"
+          "PLACEHOLDER": "Mot de passe *"
         }
       },
       "BUTTON": {
         "SUBMIT": {
-          "TEXT": "Connexion"
+          "LABEL": "Connexion"
         }
       }
     }

@@ -1,9 +1,8 @@
 import { Navigate } from "react-router-dom";
-
 import { LoginForm } from "@components/Form/LoginForm";
 import { useAuth } from "@hooks/useAuth";
 
-const REDIRECT_PATH: string = "/";
+const REDIRECT_PATH = "/";
 
 export const Login = (): JSX.Element => {
   const { user } = useAuth();
