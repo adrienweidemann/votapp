@@ -28,5 +28,12 @@
         }
       }
     }
+  },
+  "NAVBAR": {
+    "BUTTON": {
+      "LOGOUT": {
+        "LABEL": "Logout"
+      }
+    }
   }
 }
