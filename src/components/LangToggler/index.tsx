@@ -10,9 +10,17 @@ export const LangToggler = () => {
   };
 
   return (
-    <div>
-      <button onClick={() => changeLanguage(LANG.FR)}>FR</button>
-      <button onClick={() => changeLanguage(LANG.EN)}>EN</button>
-    </div>
+    <ul className="absolute w-full py-2 text-sm text-primary-500">
+      <li className="block leading-3 px-4 py-2 hover:bg-gray-100">
+        <button type="button" onClick={() => changeLanguage(LANG.FR)}>
+          FR
+        </button>
+      </li>
+      <li className="block leading-3 px-4 py-2 hover:bg-gray-100">
+        <button type="button" onClick={() => changeLanguage(LANG.EN)}>
+          EN
+        </button>
+      </li>
+    </ul>
   );
 };

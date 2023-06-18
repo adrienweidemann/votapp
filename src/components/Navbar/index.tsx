@@ -1,50 +1,47 @@
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { ChevronDownIcon } from "@heroicons/react/24/solid";
+
+import { useAuth } from "@hooks/Auth/useAuth";
+import { LangToggler } from "@components/LangToggler";
 
 export const Navbar = (): JSX.Element => {
+  const { logout } = useAuth();
   const { t } = useTranslation();
 
-  return (
-    <nav className="flex items-center justify-end pb-2.5">
-      <ul className="flex text-primary text-xs gap-x-0.5">
-        <li>
-          <button
-            id="dropdownNavbarLink"
-            data-dropdown-toggle="dropdownNavbar"
-            className="flex items-center justify-between w-full py-2 pl-3 pr-4  text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-gray-400 dark:hover:text-white dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">
-            Dropdown{" "}
-          </button>
+  const [toggleDropdown, setToggleDropdown] = useState<boolean>(false);
 
-          <div
-            id="dropdownNavbar"
-            className="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
-            <ul
-              className="py-2 text-sm text-gray-700 dark:text-gray-400"
-              aria-labelledby="dropdownLargeButton">
-              <li>
-                <a
-                  href="/#"
-                  className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                  FR
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/#"
-                  className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                  EN
-                </a>
-              </li>
-            </ul>
-          </div>
-        </li>
-        <li>
-          <button
-            type="button"
-            className="text-white bg-primary-500 hover:bg-primary-700 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2">
-            {t("NAVBAR.BUTTON.LOGOUT.LABEL")}
-          </button>
-        </li>
-      </ul>
-    </nav>
+  return (
+    <header className="flex justify-end align-center [&_li]:inline-block [&_li]:list-none [&_li]:px-2">
+      <nav>
+        <ul>
+          <li>
+            <button
+              className="gap-x-1.5 text-white text-primary-500 hover:text-primary-700 focus:outline-none font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center"
+              type="button"
+              onClick={() => setToggleDropdown(!toggleDropdown)}
+              aria-expanded="true"
+              aria-haspopup="true">
+              FR <ChevronDownIcon className="w-4 h-4 ml-2" />
+            </button>
+
+            <div
+              className={`${
+                toggleDropdown ? "" : "hidden"
+              } absolute text-base z-50 w-22 list-none divide-y divide-gray-100 rounded shadow`}>
+              <LangToggler />
+            </div>
+          </li>
+          <li>
+            <button
+              type="button"
+              onClick={logout}
+              className="w-full text-white bg-primary-500 hover:bg-primary-700 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm p-2.5 text-center">
+              {t("NAVBAR.BUTTON.LOGOUT.LABEL")}
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </header>
   );
 };

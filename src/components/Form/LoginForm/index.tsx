@@ -58,7 +58,7 @@ export const LoginForm = ({ redirectTo }: { redirectTo: string }): JSX.Element =
           />
           {errors.password?.message && (
             <p className="text-red-700 text-sm px-4 py-3">{errors.password?.message}</p>
-          )}{" "}
+          )}
         </div>
 
         <button

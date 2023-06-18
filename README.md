@@ -9,6 +9,14 @@
 
 > Votapp - React + Vite app
 
+## TO DO
+
+- API config
+- Mobile responsive
+- Menu dropdown avec logout
+- Formulaire Home
+- Protection SSL
+
 ## Prerequisites
 
 - node 18
