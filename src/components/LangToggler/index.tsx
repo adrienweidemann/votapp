@@ -1,26 +1,51 @@
+import { Dispatch, SetStateAction } from "react";
 import { useTranslation } from "react-i18next";
+
 import { Lang } from "@definitions/global";
 import { LANG } from "@configs/global";
 
-export const LangToggler = () => {
+export const LangToggler = ({
+  toggle,
+  setToggleDropdown
+}: {
+  toggle: boolean;
+  setToggleDropdown: Dispatch<SetStateAction<boolean>>;
+}) => {
   const { i18n } = useTranslation();
 
   const changeLanguage = (lang: Lang): void => {
     i18n.changeLanguage(lang);
   };
 
+  const handleLangSelect = (lang: Lang): void => {
+    setToggleDropdown(false);
+    changeLanguage(lang);
+  };
+
   return (
-    <ul className="absolute w-full py-2 text-sm text-primary-500">
-      <li className="block leading-3 px-4 py-2 hover:bg-gray-100">
-        <button type="button" onClick={() => changeLanguage(LANG.FR)}>
-          FR
-        </button>
-      </li>
-      <li className="block leading-3 px-4 py-2 hover:bg-gray-100">
-        <button type="button" onClick={() => changeLanguage(LANG.EN)}>
-          EN
-        </button>
-      </li>
-    </ul>
+    <>
+      <ul
+        className={`${
+          !toggle ? "hidden" : ""
+        } absolute z-10 w-20 border-gray-100 list-none rounded-lg shadow-lg hover:[&>li:first-child]:rounded-t-lg hover:[&>li:last-child]:rounded-b-lg
+        hover:[&>li]:bg-primary-500 hover:[&>li]:text-white`}>
+        <li className="w-full">
+          <button
+            type="button"
+            className="inline-flex w-full px-4 py-2"
+            onClick={() => handleLangSelect(LANG.FR)}>
+            FR
+          </button>
+        </li>
+        <li className="w-full">
+          <button
+            type="button"
+            className="inline-flex w-full px-4 py-2"
+            onClick={() => handleLangSelect(LANG.EN)}>
+            EN
+          </button>
+        </li>
+      </ul>
+    </>
   );
 };

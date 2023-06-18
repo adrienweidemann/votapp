@@ -26,7 +26,7 @@ export const LoginForm = ({ redirectTo }: { redirectTo: string }): JSX.Element =
 
   return (
     <FormProvider {...methods}>
-      <form className="w-2/5 space-y-6" onSubmit={methods.handleSubmit(onSubmit)}>
+      <form className="space-y-6" onSubmit={methods.handleSubmit(onSubmit)}>
         <div className="flex justify-center place-items-center">
           <LockClosedIcon className="w-20 h-20 p-2 rounded-full ring-2 ring-secondary-300 text-secondary-300" />
         </div>

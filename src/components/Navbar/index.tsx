@@ -17,7 +17,7 @@ export const Navbar = (): JSX.Element => {
         <ul>
           <li>
             <button
-              className="gap-x-1.5 text-white text-primary-500 hover:text-primary-700 focus:outline-none font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center"
+              className="gap-x-1.5 text-primary-500 hover:text-primary-700 focus:outline-none font-bold rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center"
               type="button"
               onClick={() => setToggleDropdown(!toggleDropdown)}
               aria-expanded="true"
@@ -25,12 +25,7 @@ export const Navbar = (): JSX.Element => {
               FR <ChevronDownIcon className="w-4 h-4 ml-2" />
             </button>
 
-            <div
-              className={`${
-                toggleDropdown ? "" : "hidden"
-              } absolute text-base z-50 w-22 list-none divide-y divide-gray-100 rounded shadow`}>
-              <LangToggler />
-            </div>
+            <LangToggler toggle={toggleDropdown} setToggleDropdown={setToggleDropdown} />
           </li>
           <li>
             <button
