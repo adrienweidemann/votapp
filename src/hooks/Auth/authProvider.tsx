@@ -10,13 +10,9 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }): JSX.E
   const navigate = useNavigate();
 
   const login = async (credentials: { email: string; password: string }): Promise<void> => {
-    try {
-      const user: AuthenticatedUser = await usersLogin(credentials);
-      setUser(user);
-      navigate("/");
-    } catch (err) {
-      throw err;
-    }
+    const user: AuthenticatedUser = await usersLogin(credentials);
+    setUser(user);
+    navigate("/");
   };
 
   const logout = (): void => {

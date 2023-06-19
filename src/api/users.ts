@@ -4,7 +4,8 @@ import AxiosMockAdapter from "axios-mock-adapter";
 import { HTTP_REQUEST_HEADERS } from "@configs/global";
 import { AuthenticatedUser } from "@definitions/models/user";
 
-const mock = new AxiosMockAdapter(axios);
+const instance = axios.create();
+const mock = new AxiosMockAdapter(instance);
 
 mock
   .onPost("/users/login")
@@ -18,7 +19,7 @@ export const login = async ({
   password: string;
 }): Promise<AuthenticatedUser> => {
   try {
-    const { data } = await axios.post<AuthenticatedUser>(
+    const { data } = await instance.post<AuthenticatedUser>(
       "/users/login",
       { email, password },
       {
