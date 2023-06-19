@@ -1,28 +1,13 @@
-import { LockClosedIcon } from "@heroicons/react/24/outline";
 import { FormProvider, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router-dom";
-import { Input } from "@components/Form/Input";
-import { useAuth } from "@hooks/Auth/useAuth";
-
-type Inputs = {
-  email: string;
-  password: string;
-};
 
 export const LoginForm = ({ redirectTo }: { redirectTo: string }): JSX.Element => {
-  const methods = useForm<Inputs>({ mode: "onChange" });
-  const navigate = useNavigate();
+  const methods = useForm<>({ mode: "onChange" });
   const { t } = useTranslation();
-  const { login } = useAuth();
 
   const { errors, isValid } = methods.formState;
 
-  const onSubmit = (_data: Inputs) => {
-    // TODO - API call and use data in order to query it
-    login({ id: 1, name: "Adrien W.", token: "abcde", role: "admin" });
-    navigate(redirectTo);
-  };
+  const onSubmit = async () => {};
 
   return (
     <FormProvider {...methods}>

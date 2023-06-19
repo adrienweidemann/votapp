@@ -4,7 +4,7 @@ import { AuthenticatedUser } from "@definitions/models/user";
 
 export interface ProvideAuthContext {
   user: AuthenticatedUser | null;
-  login: (user: AuthenticatedUser) => Promise<void>;
+  login: (user: { email: string; password: string }) => Promise<void>;
   logout: () => void;
 }
 

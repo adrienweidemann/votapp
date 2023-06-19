@@ -5,6 +5,12 @@ export const MainContainer = ({ children }: { children?: React.ReactNode }): JSX
     <>
       <Navbar />
       <div className="flex h-screen">{children}</div>
+
+      <div>
+        <a href="/#" className="text-sm font-medium text-gray">
+          Made with ❤️ at Strasbourg
+        </a>
+      </div>
     </>
   );
 };

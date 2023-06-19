@@ -18,6 +18,10 @@ export default defineConfig({
         replacement: fileURLToPath(new URL("./src/hooks", import.meta.url))
       },
       {
+        find: "@api",
+        replacement: fileURLToPath(new URL("./src/api", import.meta.url))
+      },
+      {
         find: "@definitions",
         replacement: fileURLToPath(new URL("./src/definitions", import.meta.url))
       },

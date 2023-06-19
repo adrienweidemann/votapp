@@ -34,6 +34,8 @@
     "@fontsource/open-sans": "^5.0.3",
     "@headlessui/react": "^1.7.15",
     "@heroicons/react": "^2.0.18",
+    "axios": "^1.4.0",
+    "axios-mock-adapter": "^1.21.5",
     "i18next": "^23.0.2",
     "i18next-browser-languagedetector": "^7.0.2",
     "react": "^18.2.0",

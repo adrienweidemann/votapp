@@ -27,6 +27,7 @@
       "@configs/*": ["./src/configs/*"],
       "@pages/*": ["./src/pages/*"],
       "@hooks/*": ["./src/hooks/*"],
+      "@api/*": ["./src/api/*"],
       "@definitions/*": ["./src/definitions/*"],
       "@root/*": ["./src/*"]
     }
