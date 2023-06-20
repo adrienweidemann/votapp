@@ -13,20 +13,28 @@ export const Home = (): JSX.Element => {
   const { t } = useTranslation();
   const [ratingGrids, setRatingGrids] = useState<RatingGrid[]>([]);
   const [message, setMessage] = useState<string>("");
+  console.log("message:", message);
+
   const [welcomeTextIndex, setWelcomeTextIndex] = useState<number>(0);
   const welcomeText: string = t("PAGE.HOME.WELCOME_TEXT");
   const welcomeTextSplitted: string[] = welcomeText.split("");
 
   useEffect(() => {
     const timer = setInterval(() => {
-      if (welcomeTextIndex === welcomeTextSplitted.length) {
-        clearInterval(timer);
+      if (welcomeTextIndex < welcomeTextSplitted.length) {
+        setMessage((prevText) => prevText + welcomeTextSplitted[welcomeTextIndex]);
+        setWelcomeTextIndex((prevMessageIndex) => prevMessageIndex + 1);
       } else {
-        setMessage((previous: string): string => previous + welcomeTextSplitted[welcomeTextIndex]);
-        setWelcomeTextIndex((previous: number): number => previous++);
+        clearInterval(timer);
       }
-    }, 500);
 
+      //  la vitesse ici
+    }, 100);
+    // obliger de clean sinon probleme de perf car on a un setinterval qui tourne en boucle (s'accumule) à chaque render
+    return () => clearInterval(timer);
+  }, [welcomeTextIndex, welcomeTextSplitted]);
+
+  useEffect(() => {
     fetchRatingGrids()
       .then((ratingGrids: GetAll<RatingGrid>) => {
         setRatingGrids(ratingGrids.data);
@@ -34,7 +42,26 @@ export const Home = (): JSX.Element => {
       .catch((err) => {
         console.error(err);
       });
-  }, [welcomeTextIndex, welcomeTextSplitted]);
+  }, []);
+
+  //   useEffect(() => {
+  //     const timer = setInterval(() => {
+  //       if (welcomeTextIndex === welcomeTextSplitted.length) {
+  //         clearInterval(timer);
+  //       } else {
+  //         setMessage((previous: string): string => previous + welcomeTextSplitted[welcomeTextIndex]);
+  //         setWelcomeTextIndex((previous: number): number => previous++);
+  //       }
+  //     }, 500);
+
+  //     fetchRatingGrids()
+  //       .then((ratingGrids: GetAll<RatingGrid>) => {
+  //         setRatingGrids(ratingGrids.data);
+  //       })
+  //       .catch((err) => {
+  //         console.error(err);
+  //       });
+  //   }, [welcomeTextIndex, welcomeTextSplitted]);
 
   return (
     <MainContainer>
