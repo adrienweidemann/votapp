@@ -1,5 +1,5 @@
 {
-  "PAGES": {
+  "PAGE": {
     "NOT_FOUND": {
       "TEXT": "Page non trouvée."
     },
@@ -29,6 +29,20 @@
         "SUBMIT": {
           "LABEL": "Connexion"
         }
+      }
+    },
+    "RATING_CRITERIA": {
+      "GLOBAL": {
+        "LABEL": "Evaluation globale"
+      },
+      "TIME_MANAGEMENT": {
+        "LABEL": "Respect du temps"
+      },
+      "QUALITY": {
+        "LABEL": "Qualité des informations présentées"
+      },
+      "ANIMATION": {
+        "LABEL": "Animation et forme du contenu"
       }
     }
   },

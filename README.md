@@ -12,7 +12,6 @@
 ## TO DO
 
 - API config
-- Formulaire Home
 - Protection SSL
 
 ## Prerequisites

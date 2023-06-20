@@ -27,7 +27,7 @@ export const LangToggler = ({
       <ul
         className={`${
           !toggle ? "hidden" : ""
-        } absolute z-10 w-20 border-gray-100 list-none rounded-lg shadow-lg hover:[&>li:first-child]:rounded-t-lg hover:[&>li:last-child]:rounded-b-lg
+        } absolute z-50 w-20 bg-white border-gray-100 list-none rounded-lg shadow-lg hover:[&>li:first-child]:rounded-t-lg hover:[&>li:last-child]:rounded-b-lg
         hover:[&>li]:bg-primary-500 hover:[&>li]:text-white`}>
         <li className="w-full">
           <button

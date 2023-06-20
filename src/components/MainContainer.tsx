@@ -4,7 +4,7 @@ export const MainContainer = ({ children }: { children?: React.ReactNode }): JSX
   return (
     <>
       <Navbar />
-      <div className="flex h-screen">{children}</div>
+      <div className="flex grow">{children}</div>
 
       <div>
         <a href="/#" className="text-sm font-medium text-gray">

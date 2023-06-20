@@ -16,7 +16,7 @@ export const RatingGridSet = ({ ratingGrids }: { ratingGrids: RatingGridType[] }
     for (const ratingGrid of ratingGrids) {
       grids.push(
         <div key={ratingGrid.id}>
-          <p>{ratingGrid.label}</p>
+          <p className="uppercase font-bold text-primary-500">{ratingGrid.label}</p>
           <RatingGrid />
         </div>
       );

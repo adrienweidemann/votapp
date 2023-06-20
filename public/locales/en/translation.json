@@ -30,6 +30,20 @@
           "LABEL": "Sign in"
         }
       }
+    },
+    "RATING_CRITERIA": {
+      "GLOBAL": {
+        "LABEL": "Global evaluation"
+      },
+      "TIME_MANAGEMENT": {
+        "LABEL": "Time management"
+      },
+      "QUALITY": {
+        "LABEL": "Information's quality"
+      },
+      "ANIMATION": {
+        "LABEL": "Animation(s) and form"
+      }
     }
   },
   "NAVBAR": {
