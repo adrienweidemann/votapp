@@ -13,8 +13,6 @@ export const Home = (): JSX.Element => {
   const { t } = useTranslation();
   const [ratingGrids, setRatingGrids] = useState<RatingGrid[]>([]);
   const [message, setMessage] = useState<string>("");
-  console.log("message:", message);
-
   const [welcomeTextIndex, setWelcomeTextIndex] = useState<number>(0);
   const welcomeText: string = t("PAGE.HOME.WELCOME_TEXT");
   const welcomeTextSplitted: string[] = welcomeText.split("");
@@ -22,46 +20,31 @@ export const Home = (): JSX.Element => {
   useEffect(() => {
     const timer = setInterval(() => {
       if (welcomeTextIndex < welcomeTextSplitted.length) {
-        setMessage((prevText) => prevText + welcomeTextSplitted[welcomeTextIndex]);
-        setWelcomeTextIndex((prevMessageIndex) => prevMessageIndex + 1);
+        setMessage(
+          (previous: string): string => `${previous}${welcomeTextSplitted[welcomeTextIndex]}`
+        );
+        setWelcomeTextIndex((previous: number): number => previous + 1);
       } else {
         clearInterval(timer);
+        renderGridsSet();
       }
-
-      //  la vitesse ici
-    }, 100);
-    // obliger de clean sinon probleme de perf car on a un setinterval qui tourne en boucle (s'accumule) à chaque render
-    return () => clearInterval(timer);
+    }, 15);
+    return () => {
+      clearInterval(timer);
+    };
   }, [welcomeTextIndex, welcomeTextSplitted]);
 
-  useEffect(() => {
+  const renderGridsSet = () => {
     fetchRatingGrids()
-      .then((ratingGrids: GetAll<RatingGrid>) => {
-        setRatingGrids(ratingGrids.data);
+      .then(async (ratingGrids: GetAll<RatingGrid>) => {
+        setTimeout(() => {
+          setRatingGrids(ratingGrids.data);
+        }, 1000);
       })
       .catch((err) => {
         console.error(err);
       });
-  }, []);
-
-  //   useEffect(() => {
-  //     const timer = setInterval(() => {
-  //       if (welcomeTextIndex === welcomeTextSplitted.length) {
-  //         clearInterval(timer);
-  //       } else {
-  //         setMessage((previous: string): string => previous + welcomeTextSplitted[welcomeTextIndex]);
-  //         setWelcomeTextIndex((previous: number): number => previous++);
-  //       }
-  //     }, 500);
-
-  //     fetchRatingGrids()
-  //       .then((ratingGrids: GetAll<RatingGrid>) => {
-  //         setRatingGrids(ratingGrids.data);
-  //       })
-  //       .catch((err) => {
-  //         console.error(err);
-  //       });
-  //   }, [welcomeTextIndex, welcomeTextSplitted]);
+  };
 
   return (
     <MainContainer>

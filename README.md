@@ -12,6 +12,7 @@
 ## TO DO
 
 - API config
+- Lang management from localStorage (with initial state)
 - Protection SSL
 
 ## Prerequisites
