@@ -4,7 +4,7 @@
       "TEXT": "Page not found."
     },
     "HOME": {
-      "WELCOME_TEXT": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae egestas erat, ut imperdiet justo. Nullam pretium quam sed varius rhoncus. Sed enim purus, dignissim sed dapibus at, tincidunt tristique arcu. Suspendisse massa lectus, malesuada in interdum nec, vehicula ut mi. Nulla sed diam eget quam tempus tempor quis eget metus. Morbi semper felis nec sodales tempus. Sed pretium nunc egestas, suscipit dolor tristique, cursus nibh. Pellentesque at erat magna. Ut vitae semper arcu. Nam tristique nibh ac turpis bibendum sagittis."
+      "WELCOME_TEXT": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae egestas erat, ut imperdiet justo. Nullam pretium quam sed varius rhoncus."
     }
   },
   "FORM": {
