@@ -4,7 +4,12 @@
       "TEXT": "Page non trouvée."
     },
     "HOME": {
-      "WELCOME_TEXT": "Bonjour, je suis Bob. Je vais vous accompagner pour ce séminaire. J'espère que vous aurez apprécié cette magnifique journée qui nous réunis tous ensemble. Pour conclure, je vous propose d'évaluer les interventions suivantes."
+      "WELCOME_TEXT": "Bonjour, je suis Bob. Je vais vous accompagner pour ce séminaire. J'espère que vous aurez apprécié cette magnifique journée qui nous réunis tous ensemble. Pour conclure, je vous propose d'évaluer les interventions suivantes.",
+      "BUTTON": {
+        "SUBMIT": {
+          "LABEL": "Envoyer"
+        }
+      }
     }
   },
   "FORM": {

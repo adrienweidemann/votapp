@@ -17,7 +17,9 @@ export const RatingGrid = (): JSX.Element => {
 
         for (const result of results.data) {
           criterias.push(
-            <span key={result.id} className="grid grid-cols-2 gap-4 items-center">
+            <span
+              key={result.id}
+              className="grid grid-cols-2 grid-flow-col gap-4 item-center overflow-hidden	">
               <p>{t(result.label)}</p>
               <Rating />
             </span>
