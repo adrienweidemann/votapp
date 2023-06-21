@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 import { MainContainer } from "@components/MainContainer";
 import { RatingGridSet } from "@components/Form/RatingGridSet";
-import { fetchRatingGrids, postRatingGridRatings } from "@api/rating-grids";
+import { fetchRatingGrids } from "@api/rating-grids";
 import { GetAll } from "@definitions/global";
 import { RatingGrid, RatingGridRating } from "@definitions/models/rating-grids";
 
@@ -79,16 +79,16 @@ export const Home = (): JSX.Element => {
 
   const onSubmit = async (ratingGridRatings: RatingGridRating[]) => {
     console.log(ratingGridRatings);
-    for (const ratingGridRating of ratingGridRatings) {
+    /*for (const ratingGridRating of ratingGridRatings) {
       await postRatingGridRatings(ratingGridRating.ratingGridId, ratingGridRating.ratings);
-    }
+    }*/
     navigate("/thanks");
   };
 
   return (
     <FormProvider {...methods}>
       <MainContainer>
-        <form className="w-full text-left py-5 md:py-10" onSubmit={methods.handleSubmit(onSubmit)}>
+        <form className="w-full text-left py-5" onSubmit={methods.handleSubmit(onSubmit)}>
           <div className="group w-full p-5 text-gray-800 border-b border-black/10 bg-gray-50">
             <span className="w-[30px]">
               <img height={22} width={22} className="inline" src={listLogo} alt="List logo" />

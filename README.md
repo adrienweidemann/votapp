@@ -12,8 +12,13 @@
 ## TO DO
 
 - API config
-- Lang management from localStorage (with initial state)
 - Protection SSL
+- Handle GridSet form submit
+- Handle GridSet isValid form
+- Handle GridSet with API call (check in db is user already submitted) - redirect to Thanks page
+- Manage lookNfeel
+- Thanks page
+- Not found page
 
 ## Prerequisites
 

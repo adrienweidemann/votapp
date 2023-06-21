@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 import { fetchRatingCriterias } from "@api/rating-criterias";
@@ -17,12 +17,10 @@ export const RatingGrid = (): JSX.Element => {
 
         for (const result of results.data) {
           criterias.push(
-            <span
-              key={result.id}
-              className="grid grid-cols-2 grid-flow-col gap-4 item-center overflow-hidden	">
+            <Fragment key={result.id}>
               <p>{t(result.label)}</p>
               <Rating />
-            </span>
+            </Fragment>
           );
         }
 
@@ -34,10 +32,10 @@ export const RatingGrid = (): JSX.Element => {
   }, [t]);
 
   return (
-    <>
+    <div className="grid grid-cols-[max-content_auto] gap-x-4 item-center">
       {ratingCriterias.map((ratingCriteria) => {
         return ratingCriteria;
       })}
-    </>
+    </div>
   );
 };

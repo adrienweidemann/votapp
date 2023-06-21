@@ -10,7 +10,7 @@ export const RatingGridSet = ({ ratingGrids }: { ratingGrids: RatingGridType[] }
 
     for (const ratingGrid of shuffleRatingGrids) {
       grids.push(
-        <div key={ratingGrid.id}>
+        <div key={ratingGrid.id} className="py-3">
           <p className="uppercase font-bold text-primary-500">{ratingGrid.label}</p>
           <RatingGrid />
         </div>
