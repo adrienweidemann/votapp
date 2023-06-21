@@ -1,7 +1,7 @@
 export const Thanks = (): JSX.Element => {
   return (
     <>
-      <p>Thanks</p>
+      <p className="text-white">Thanks</p>
     </>
   );
 };

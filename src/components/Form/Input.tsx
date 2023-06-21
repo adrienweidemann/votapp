@@ -17,7 +17,7 @@ export const Input = ({ label, type, name, placeholder, required }: Props): JSX.
 
   return (
     <>
-      <label htmlFor={`${name}${id}`} className="block mb-2 text-sm font-medium text-gray-900">
+      <label htmlFor={`${name}${id}`} className="block mb-2 text-sm font-medium text-white">
         {label}
       </label>
       <input

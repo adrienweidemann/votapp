@@ -1,12 +1,34 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useFormContext } from "react-hook-form";
 
-export const Rating = (): JSX.Element => {
+export const Rating = ({
+  ratingGridId,
+  ratingCriteriaId
+}: {
+  ratingGridId: number;
+  ratingCriteriaId: number;
+}): JSX.Element => {
+  const { register, setValue } = useFormContext();
   const [rating, setRating] = useState<number>(0);
 
+  const REGISTER_NAME = `rating.${ratingGridId}.${ratingCriteriaId}`;
+  console.log(REGISTER_NAME);
+
+  useEffect(() => {
+    register(REGISTER_NAME, {
+      required: true
+    });
+  }, [register, REGISTER_NAME]);
+
+  const handleOnClick = (value: number): void => {
+    setRating(value);
+    setValue(REGISTER_NAME, value, { shouldValidate: true });
+  };
+
   return (
-    <div className="flex flex-row-reverse justify-end">
+    <div className="flex flex-row-reverse justify-end items-center" {...register(REGISTER_NAME)}>
       <svg
-        onClick={() => setRating(5)}
+        onClick={() => handleOnClick(5)}
         xmlns="http://www.w3.org/2000/svg"
         fill="currentColor"
         viewBox="0 0 24 24"
@@ -22,7 +44,7 @@ export const Rating = (): JSX.Element => {
         />
       </svg>
       <svg
-        onClick={() => setRating(4)}
+        onClick={() => handleOnClick(4)}
         xmlns="http://www.w3.org/2000/svg"
         fill="currentColor"
         viewBox="0 0 24 24"
@@ -38,7 +60,7 @@ export const Rating = (): JSX.Element => {
         />
       </svg>
       <svg
-        onClick={() => setRating(3)}
+        onClick={() => handleOnClick(3)}
         xmlns="http://www.w3.org/2000/svg"
         fill="currentColor"
         viewBox="0 0 24 24"
@@ -54,7 +76,7 @@ export const Rating = (): JSX.Element => {
         />
       </svg>
       <svg
-        onClick={() => setRating(2)}
+        onClick={() => handleOnClick(2)}
         xmlns="http://www.w3.org/2000/svg"
         fill="currentColor"
         viewBox="0 0 24 24"
@@ -70,7 +92,7 @@ export const Rating = (): JSX.Element => {
         />
       </svg>
       <svg
-        onClick={() => setRating(1)}
+        onClick={() => handleOnClick(1)}
         xmlns="http://www.w3.org/2000/svg"
         fill="currentColor"
         viewBox="0 0 24 24"

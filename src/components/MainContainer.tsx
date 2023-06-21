@@ -7,7 +7,7 @@ export const MainContainer = ({ children }: { children?: React.ReactNode }): JSX
       <div className="flex grow">{children}</div>
 
       <div>
-        <a href="/#" className="text-sm font-medium text-gray">
+        <a href="https://github.com/adrienweidemann" className="text-sm font-medium text-white">
           Made with ❤️ at Strasbourg
         </a>
       </div>

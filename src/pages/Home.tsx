@@ -10,7 +10,7 @@ import { fetchRatingGrids } from "@api/rating-grids";
 import { GetAll } from "@definitions/global";
 import { RatingGrid, RatingGridRating } from "@definitions/models/rating-grids";
 
-import listLogo from "/list.png";
+import chatbotLogo from "/chatbot.png";
 import { useLang } from "@hooks/Lang/useLang";
 
 const index = (state: { index: number }, action: string) => {
@@ -35,7 +35,7 @@ export const Home = (): JSX.Element => {
   const [message, setMessage] = useState<string>("");
   const [state, dispatch] = useReducer(index, { index: 0 });
   const welcomeText: string = t("PAGE.HOME.WELCOME_TEXT");
-  const methods = useForm<RatingGridRating[]>({ mode: "onChange" });
+  const methods = useForm<RatingGridRating[]>({ mode: "onChange", reValidateMode: "onChange" });
   const navigate = useNavigate();
   const welcomeTextSplitted: string[] = welcomeText.split("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -90,10 +90,10 @@ export const Home = (): JSX.Element => {
       <MainContainer>
         <form className="w-full text-left py-5" onSubmit={methods.handleSubmit(onSubmit)}>
           <div className="group w-full p-5 text-gray-800 border-b border-black/10 bg-gray-50">
-            <span className="w-[30px]">
-              <img height={22} width={22} className="inline" src={listLogo} alt="List logo" />
+            <span>
+              <img height={33} width={33} className="inline" src={chatbotLogo} alt="List logo" />
             </span>
-            <span aria-label={welcomeText} className="pl-2 inline">
+            <span aria-label={welcomeText} className="pl-2 mt-2 inline">
               {message}
             </span>
           </div>

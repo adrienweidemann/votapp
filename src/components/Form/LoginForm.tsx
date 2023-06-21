@@ -25,7 +25,7 @@ export const LoginForm = ({ redirectTo }: { redirectTo: string }): JSX.Element =
 
   return (
     <FormProvider {...methods}>
-      <form className="space-y-6" onSubmit={methods.handleSubmit(onSubmit)}>
+      <form className="p-20 space-y-6" onSubmit={methods.handleSubmit(onSubmit)}>
         <div className="flex justify-center place-items-center">
           <LockClosedIcon className="w-20 h-20 p-2 rounded-full ring-2 ring-secondary-300 text-secondary-300" />
         </div>
@@ -67,7 +67,9 @@ export const LoginForm = ({ redirectTo }: { redirectTo: string }): JSX.Element =
           {t("FORM.LOGIN_FORM.BUTTON.SUBMIT.LABEL")}
         </button>
         <div>
-          <a href="/#" className="text-sm font-medium text-gray">
+          <a
+            href="https://github.com/adrienweidemann"
+            className="text-sm text-white font-medium text-gray">
             Made with ❤️ at Strasbourg
           </a>
         </div>
