@@ -11,10 +11,10 @@ const mock = new AxiosMockAdapter(instance);
 mock.onGet("/rating-criterias").reply<GetAll<RatingCriteria>>(200, {
   count: 5,
   data: [
-    { id: 1, label: "FORM.RATING_CRITERIA.GLOBAL.LABEL" },
-    { id: 2, label: "FORM.RATING_CRITERIA.QUALITY.LABEL" },
-    { id: 3, label: "FORM.RATING_CRITERIA.TIME_MANAGEMENT.LABEL" },
-    { id: 4, label: "FORM.RATING_CRITERIA.ANIMATION.LABEL" }
+    { id: 1, label: "FORM.RATING_CRITERIA.FIRST" },
+    { id: 2, label: "FORM.RATING_CRITERIA.SECOND" },
+    { id: 3, label: "FORM.RATING_CRITERIA.THIRD" },
+    { id: 4, label: "FORM.RATING_CRITERIA.FOURTH" }
   ]
 });
 

@@ -32,18 +32,10 @@
       }
     },
     "RATING_CRITERIA": {
-      "GLOBAL": {
-        "LABEL": "Evaluation globale"
-      },
-      "TIME_MANAGEMENT": {
-        "LABEL": "Respect du temps"
-      },
-      "QUALITY": {
-        "LABEL": "Qualité des informations présentées"
-      },
-      "ANIMATION": {
-        "LABEL": "Animation et forme du contenu"
-      }
+      "FIRST": "La présentation démontre la pertinence du cas d'usage pour les utilisateurs",
+      "SECOND": "La présentation du cas d'usage met en lumière la valeur ajoutée de l'IA",
+      "THIRD": "La présentation du cas d'usage reflète un bon travail d'équipe",
+      "FOURTH": "La présentation du cas d'usage respecte le temps imparti (3 min)"
     }
   },
   "NAVBAR": {

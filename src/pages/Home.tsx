@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 
 import { MainContainer } from "@components/MainContainer";
@@ -16,35 +16,36 @@ export const Home = (): JSX.Element => {
   const [welcomeTextIndex, setWelcomeTextIndex] = useState<number>(0);
   const welcomeText: string = t("PAGE.HOME.WELCOME_TEXT");
   const welcomeTextSplitted: string[] = welcomeText.split("");
+  let mustRender = useRef<boolean>(false);
+
+  useEffect(() => {
+    fetchRatingGrids()
+      .then(async (ratingGrids: GetAll<RatingGrid>) => {
+        setRatingGrids(ratingGrids.data);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }, [mustRender.current]);
 
   useEffect(() => {
     const timer = setInterval(() => {
+      console.log(welcomeTextIndex);
       if (welcomeTextIndex < welcomeTextSplitted.length) {
         setMessage(
           (previous: string): string => `${previous}${welcomeTextSplitted[welcomeTextIndex]}`
         );
         setWelcomeTextIndex((previous: number): number => previous + 1);
       } else {
+        mustRender.current = true;
         clearInterval(timer);
-        renderGridsSet();
       }
     }, 15);
+
     return () => {
       clearInterval(timer);
     };
-  }, [welcomeTextIndex, welcomeTextSplitted]);
-
-  const renderGridsSet = () => {
-    fetchRatingGrids()
-      .then(async (ratingGrids: GetAll<RatingGrid>) => {
-        setTimeout(() => {
-          setRatingGrids(ratingGrids.data);
-        }, 1000);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-  };
+  }, [welcomeTextIndex]);
 
   return (
     <MainContainer>
@@ -58,9 +59,11 @@ export const Home = (): JSX.Element => {
           </span>
         </div>
 
-        <div className="px-5 py-5">
-          <RatingGridSet ratingGrids={ratingGrids} />
-        </div>
+        {mustRender.current === true && (
+          <div className="px-5 py-5">
+            <RatingGridSet ratingGrids={ratingGrids} />
+          </div>
+        )}
       </div>
     </MainContainer>
   );

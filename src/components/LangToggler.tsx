@@ -1,6 +1,7 @@
 import { Dispatch, SetStateAction } from "react";
 import { useTranslation } from "react-i18next";
 
+import { useLang } from "@hooks/Lang/useLang";
 import { Lang } from "@definitions/global";
 import { LANG } from "@configs/global";
 
@@ -12,9 +13,11 @@ export const LangToggler = ({
   setToggleDropdown: Dispatch<SetStateAction<boolean>>;
 }) => {
   const { i18n } = useTranslation();
+  const { setLang } = useLang();
 
   const changeLanguage = (lang: Lang): void => {
     i18n.changeLanguage(lang);
+    setLang(lang);
   };
 
   const handleLangSelect = (lang: Lang): void => {

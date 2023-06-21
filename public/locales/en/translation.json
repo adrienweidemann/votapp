@@ -32,18 +32,10 @@
       }
     },
     "RATING_CRITERIA": {
-      "GLOBAL": {
-        "LABEL": "Global evaluation"
-      },
-      "TIME_MANAGEMENT": {
-        "LABEL": "Time management"
-      },
-      "QUALITY": {
-        "LABEL": "Information's quality"
-      },
-      "ANIMATION": {
-        "LABEL": "Animation(s) and form"
-      }
+      "FIRST": "The presentation demonstrates the relevance of the use case for users",
+      "SECOND": "The presentation of the use case highlights the added value of AI",
+      "THIRD": "Use case presentation reflects good teamwork",
+      "FOURTH": "The presentation of the use case respects the allotted time (3min)"
     }
   },
   "NAVBAR": {

@@ -2,12 +2,14 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
 
+import { useLang } from "@hooks/Lang/useLang";
 import { useAuth } from "@hooks/Auth/useAuth";
 import { LangToggler } from "@components/LangToggler";
 
 export const Navbar = (): JSX.Element => {
   const { logout } = useAuth();
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
+  const { lang } = useLang();
 
   const [toggleDropdown, setToggleDropdown] = useState<boolean>(false);
 
@@ -22,7 +24,7 @@ export const Navbar = (): JSX.Element => {
               onClick={() => setToggleDropdown(!toggleDropdown)}
               aria-expanded="true"
               aria-haspopup="true">
-              {i18n.language.substring(0, 2)} <ChevronDownIcon className="w-4 h-4 ml-2" />
+              {lang.substring(0, 2)} <ChevronDownIcon className="w-4 h-4 ml-2" />
             </button>
 
             <LangToggler toggle={toggleDropdown} setToggleDropdown={setToggleDropdown} />

@@ -13,6 +13,7 @@ export default defineConfig({
       },
       { find: "@configs", replacement: fileURLToPath(new URL("./src/configs", import.meta.url)) },
       { find: "@pages", replacement: fileURLToPath(new URL("./src/pages", import.meta.url)) },
+      { find: "@helpers", replacement: fileURLToPath(new URL("./src/helpers", import.meta.url)) },
       {
         find: "@hooks",
         replacement: fileURLToPath(new URL("./src/hooks", import.meta.url))
