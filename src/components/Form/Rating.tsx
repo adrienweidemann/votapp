@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useId } from "react";
 import { useFormContext } from "react-hook-form";
 
 export const Rating = ({
@@ -10,9 +10,7 @@ export const Rating = ({
 }): JSX.Element => {
   const { register, setValue } = useFormContext();
   const [rating, setRating] = useState<number>(0);
-
   const REGISTER_NAME = `rating.${ratingGridId}.${ratingCriteriaId}`;
-  console.log(REGISTER_NAME);
 
   useEffect(() => {
     register(REGISTER_NAME, {
@@ -26,7 +24,7 @@ export const Rating = ({
   };
 
   return (
-    <div className="flex flex-row-reverse justify-end items-center" {...register(REGISTER_NAME)}>
+    <div className="flex flex-row-reverse justify-end items-center">
       <svg
         onClick={() => handleOnClick(5)}
         xmlns="http://www.w3.org/2000/svg"

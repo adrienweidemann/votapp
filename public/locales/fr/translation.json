@@ -3,6 +3,9 @@
     "NOT_FOUND": {
       "TEXT": "Page non trouvée."
     },
+    "THANKS": {
+      "TEXT": "Merci pour votre participation !"
+    },
     "HOME": {
       "WELCOME_TEXT": "Bonjour, je suis Bob. Je vais vous accompagner pour ce séminaire. J'espère que vous aurez apprécié cette magnifique journée qui nous réunit tous ensemble. Pour conclure, je vous propose d'évaluer les interventions suivantes.",
       "BUTTON": {

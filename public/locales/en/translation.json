@@ -3,6 +3,9 @@
     "NOT_FOUND": {
       "TEXT": "Page not found."
     },
+    "THANKS": {
+      "TEXT": "Thanks for your participation!"
+    },
     "HOME": {
       "WELCOME_TEXT": "Hello, I'm Daniel. I will go though with you for this seminar. I hope you enjoyed this wonderful day that brings us all together. To conclude, I suggest that you evaluate the following interventions.",
       "BUTTON": {
