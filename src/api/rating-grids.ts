@@ -8,6 +8,10 @@ import { RatingGrid, RatingCriteriaRating } from "@definitions/models/rating-gri
 const instance = axios.create();
 const mock = new AxiosMockAdapter(instance);
 
+const wait = (timeout?: number) => {
+  return new Promise((resolve) => setTimeout(resolve, timeout));
+};
+
 mock.onGet("/rating-grids").reply<GetAll<RatingGrid>>(200, {
   count: 5,
   data: [
@@ -29,6 +33,7 @@ mock.onPost("/rating-grids/:id/ratings").reply<RatingCriteriaRating[]>(200, [
 
 export const fetchRatingGrids = async (): Promise<GetAll<RatingGrid>> => {
   try {
+    await wait(2000);
     const { data } = await instance.get<GetAll<RatingGrid>>("/rating-grids", {
       headers: HTTP_REQUEST_HEADERS
     });

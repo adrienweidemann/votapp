@@ -1,6 +1,7 @@
 import { useState, useEffect, useReducer } from "react";
 import { useTranslation } from "react-i18next";
 import { FormProvider, useForm } from "react-hook-form";
+
 import { useNavigate } from "react-router-dom";
 
 import { MainContainer } from "@components/MainContainer";
@@ -36,28 +37,39 @@ export const Home = (): JSX.Element => {
   const welcomeText: string = t("PAGE.HOME.WELCOME_TEXT");
   const methods = useForm<RatingGridRating[]>({ mode: "onChange" });
   const navigate = useNavigate();
+  const welcomeTextSplitted: string[] = welcomeText.split("");
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
+  const isAnimationFinished = state.index === welcomeTextSplitted.length;
   const { isValid } = methods.formState;
 
   useEffect(() => {
-    const welcomeTextSplitted: string[] = welcomeText.split("");
+    setIsLoading(true);
 
+    fetchRatingGrids()
+      .then(async (ratingGrids: GetAll<RatingGrid>) => {
+        setRatingGrids(ratingGrids.data);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        setIsLoading(false);
+
+        console.error(err);
+      });
+  }, [lang]);
+
+  useEffect(() => {
     if (state.index < welcomeTextSplitted.length) {
       const timer = setTimeout(() => {
         setMessage((previous: string): string => `${previous}${welcomeTextSplitted[state.index]}`);
         dispatch("increment");
       }, 15);
-      return () => clearTimeout(timer);
-    } else {
-      fetchRatingGrids()
-        .then(async (ratingGrids: GetAll<RatingGrid>) => {
-          setRatingGrids(ratingGrids.data);
-        })
-        .catch((err) => {
-          console.error(err);
-        });
+
+      return () => {
+        clearTimeout(timer);
+      };
     }
-  }, [message, welcomeText, state.index]);
+  }, [welcomeText, state.index, welcomeTextSplitted]);
 
   useEffect(() => {
     setRatingGrids([]);
@@ -86,18 +98,21 @@ export const Home = (): JSX.Element => {
             </span>
           </div>
 
-          <div className="px-5 py-5">
-            <RatingGridSet ratingGrids={ratingGrids} />
-          </div>
-
-          <div className="flex flex-col p-2 items-center">
-            <button
-              type="submit"
-              disabled={!isValid}
-              className="text-white bg-primary-500 hover:bg-primary-700 disabled:bg-primary-500/25 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm p-2.5 text-center">
-              {t("PAGE.HOME.BUTTON.SUBMIT.LABEL")}
-            </button>
-          </div>
+          {!isLoading && isAnimationFinished && (
+            <>
+              <div className="px-5 py-5">
+                <RatingGridSet ratingGrids={ratingGrids} />
+              </div>
+              <div className="flex flex-col p-2 items-center">
+                <button
+                  type="submit"
+                  disabled={!isValid}
+                  className="text-white bg-primary-500 hover:bg-primary-700 disabled:bg-primary-500/25 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm p-2.5 text-center">
+                  {t("PAGE.HOME.BUTTON.SUBMIT.LABEL")}
+                </button>
+              </div>
+            </>
+          )}
         </form>
       </MainContainer>
     </FormProvider>
