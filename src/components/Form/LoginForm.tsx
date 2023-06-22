@@ -63,7 +63,7 @@ export const LoginForm = ({ redirectTo }: { redirectTo: string }): JSX.Element =
         <button
           type="submit"
           disabled={!isValid}
-          className="w-full text-white bg-primary-500 hover:bg-primary-700 disabled:bg-primary-500/25 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm py-2.5 text-center">
+          className="w-full text-white bg-primary-400 hover:bg-primary-700 disabled:bg-primary-400/25 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm py-2.5 text-center">
           {t("FORM.LOGIN_FORM.BUTTON.SUBMIT.LABEL")}
         </button>
         <div>

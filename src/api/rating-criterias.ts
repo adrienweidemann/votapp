@@ -9,7 +9,7 @@ const instance = axios.create();
 const mock = new AxiosMockAdapter(instance);
 
 mock.onGet("/rating-criterias").reply<GetAll<RatingCriteria>>(200, {
-  count: 5,
+  count: 4,
   data: [
     { id: 1, label: "FORM.RATING_CRITERIA.FIRST" },
     { id: 2, label: "FORM.RATING_CRITERIA.SECOND" },

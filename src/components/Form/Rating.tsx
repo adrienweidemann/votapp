@@ -1,4 +1,4 @@
-import { useState, useEffect, useId } from "react";
+import { useState, useEffect } from "react";
 import { useFormContext } from "react-hook-form";
 
 export const Rating = ({

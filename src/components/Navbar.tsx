@@ -19,7 +19,7 @@ export const Navbar = (): JSX.Element => {
         <ul className="px-2">
           <li>
             <button
-              className="uppercase md:gap-x-1.5 text-primary-500 hover:text-primary-700 focus:outline-none font-bold rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center"
+              className="uppercase md:gap-x-1.5 text-primary-400 hover:text-primary-600 focus:outline-none font-bold rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center"
               type="button"
               onClick={() => setToggleDropdown(!toggleDropdown)}
               aria-expanded="true"
@@ -33,7 +33,7 @@ export const Navbar = (): JSX.Element => {
             <button
               type="button"
               onClick={logout}
-              className="w-full text-white bg-primary-500 hover:bg-primary-700 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm p-2.5 text-center">
+              className="w-full text-white bg-primary-400 hover:bg-primary-600 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm p-2.5 text-center">
               {t("NAVBAR.BUTTON.LOGOUT.LABEL")}
             </button>
           </li>

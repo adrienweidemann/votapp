@@ -107,7 +107,7 @@ export const Home = (): JSX.Element => {
                 <button
                   type="submit"
                   disabled={!isValid}
-                  className="text-white bg-primary-500 hover:bg-primary-700 disabled:bg-primary-500/25 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm p-2.5 text-center">
+                  className="text-white bg-primary-400 hover:bg-primary-600 disabled:bg-primary-400/25 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm p-2.5 text-center">
                   {t("PAGE.HOME.BUTTON.SUBMIT.LABEL")}
                 </button>
               </div>

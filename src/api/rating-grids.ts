@@ -15,11 +15,11 @@ const wait = (timeout?: number) => {
 mock.onGet("/rating-grids").reply<GetAll<RatingGrid>>(200, {
   count: 5,
   data: [
-    { id: 1, label: "team1" },
-    { id: 2, label: "team2" },
-    { id: 3, label: "team3" },
-    { id: 4, label: "team4" },
-    { id: 5, label: "team5" }
+    { id: 1, label: "team1", icon1: "sun.png", icon2: "sun.png" },
+    { id: 2, label: "team2", icon1: "sun.png", icon2: "sun.png" },
+    { id: 3, label: "team3", icon1: "sun.png", icon2: "sun.png" },
+    { id: 4, label: "team4", icon1: "sun.png", icon2: "sun.png" },
+    { id: 5, label: "team5", icon1: "sun.png", icon2: "sun.png" }
   ]
 });
 
