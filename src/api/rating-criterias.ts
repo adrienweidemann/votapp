@@ -6,7 +6,7 @@ import { RatingCriteria } from "@definitions/models/rating-criteria";
 import { AuthenticatedUser } from "@definitions/models/user";
 
 const instance = axios.create({
-  baseURL: process.env.API_URL,
+  baseURL: import.meta.env.VITE_API_URL,
   headers: HTTP_REQUEST_HEADERS
 });
 

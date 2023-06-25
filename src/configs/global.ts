@@ -6,5 +6,5 @@ export const LANG = Object.freeze({
 export const HTTP_REQUEST_HEADERS = Object.freeze({
   "Content-Type": "application/json",
   Accept: "application/json",
-  "x-api-key-votappi": process.env.API_KEY
+  "x-api-key-votappi": import.meta.env.VITE_API_KEY
 } as const);

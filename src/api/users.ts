@@ -4,7 +4,7 @@ import { HTTP_REQUEST_HEADERS } from "@configs/global";
 import { AuthenticatedUser } from "@definitions/models/user";
 
 const instance = axios.create({
-  baseURL: process.env.API_URL,
+  baseURL: import.meta.env.VITE_API_URL,
   headers: HTTP_REQUEST_HEADERS
 });
 
