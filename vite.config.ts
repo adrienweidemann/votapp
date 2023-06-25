@@ -10,12 +10,6 @@ export default defineConfig({
   define: {
     "process.env": process.env
   },
-  server: {
-    host: "0.0.0.0"
-  },
-  preview: {
-    host: "0.0.0.0"
-  },
   plugins: [react()],
   resolve: {
     alias: [
