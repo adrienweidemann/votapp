@@ -2,7 +2,7 @@
 FROM node:18 as build
 
 # Prepare work directory
-WORKDIR /usr/src/app
+WORKDIR /app
 
 # Copy package and package-lock in work directory ; then install all dependencies
 COPY package*.json ./
