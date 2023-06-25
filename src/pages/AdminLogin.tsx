@@ -1,10 +1,10 @@
 import { Navigate } from "react-router-dom";
-import { LoginForm } from "@components/Form/LoginForm";
+import { AdminLoginForm } from "@components/Form/AdminLoginForm";
 import { useAuth } from "@hooks/Auth/useAuth";
 
-const REDIRECT_PATH = "/";
+const REDIRECT_PATH = "/admin";
 
-export const Login = (): JSX.Element => {
+export const AdminLogin = (): JSX.Element => {
   const { user } = useAuth();
 
   if (user) {
@@ -13,7 +13,7 @@ export const Login = (): JSX.Element => {
 
   return (
     <div className="flex justify-center">
-      <LoginForm redirectTo={REDIRECT_PATH} />
+      <AdminLoginForm redirectTo={REDIRECT_PATH} />
     </div>
   );
 };

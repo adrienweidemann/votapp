@@ -1,5 +1,25 @@
 {
   "PAGE": {
+    "ADMIN": {
+      "TOTAL": {
+        "TEXT": "Participations count"
+      },
+      "TAB": {
+        "FIRST": {
+          "TEXT": "Global ranking"
+        },
+        "SECOND": {
+          "TEXT": "Criteria ranking",
+          "CATEGORY": {
+            "FIRST": "Relevance",
+            "SECOND": "AI value",
+            "THIRD": "Teamwork",
+            "FOURTH": "Timing"
+          }
+        },
+        "THIRD": { "TEXT": "Team ranking" }
+      }
+    },
     "NOT_FOUND": {
       "TEXT": "Page not found."
     },
@@ -35,7 +55,8 @@
       },
       "BUTTON": {
         "SUBMIT": {
-          "LABEL": "Sign in"
+          "LABEL": "Sign in",
+          "ERROR": "Connection refused, please check your credentials and internet connection"
         }
       }
     },

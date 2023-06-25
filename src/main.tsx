@@ -8,15 +8,18 @@ import "@root/index.css";
 import { AuthProvider } from "@hooks/Auth/authProvider";
 import { LangProvider } from "@hooks/Lang/langProvider";
 import { Loader } from "@components/Loader";
+import { UniqueSubmitProvider } from "@hooks/HasSubmit/hasSubmitProvider";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <BrowserRouter>
       <AuthProvider>
         <LangProvider>
-          <Suspense fallback={<Loader />}>
-            <App />
-          </Suspense>
+          <UniqueSubmitProvider>
+            <Suspense fallback={<Loader />}>
+              <App />
+            </Suspense>
+          </UniqueSubmitProvider>
         </LangProvider>
       </AuthProvider>
     </BrowserRouter>

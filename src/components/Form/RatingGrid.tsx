@@ -5,13 +5,15 @@ import { fetchRatingCriterias } from "@api/rating-criterias";
 import { RatingCriteria } from "@definitions/models/rating-criteria";
 import { GetAll } from "@definitions/global";
 import { Rating } from "./Rating";
+import { useAuth } from "@hooks/Auth/useAuth";
 
 export const RatingGrid = ({ ratingGridId }: { ratingGridId: number }): JSX.Element => {
   const { t } = useTranslation();
   const [ratingCriterias, setRatingCriterias] = useState<JSX.Element[]>([]);
+  const { user } = useAuth();
 
   useEffect(() => {
-    fetchRatingCriterias()
+    fetchRatingCriterias(user)
       .then((ratingCriterias: GetAll<RatingCriteria>) => {
         const criterias: JSX.Element[] = [];
 
@@ -29,7 +31,7 @@ export const RatingGrid = ({ ratingGridId }: { ratingGridId: number }): JSX.Elem
       .catch((err) => {
         console.error(err);
       });
-  }, [t, ratingGridId]);
+  }, [t, ratingGridId, user]);
 
   return (
     <div className="grid sm:grid-cols-2 md:grid-cols-[max-content_auto] gap-x-4 item-center">

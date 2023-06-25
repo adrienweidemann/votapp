@@ -11,3 +11,5 @@ export interface RatingCriteriaRating {
 }
 
 export type RatingGridRating = { ratingGridId: number; ratings: RatingCriteriaRating[] };
+
+export type RatingGridFormResults = Record<string, Record<string, string>>;

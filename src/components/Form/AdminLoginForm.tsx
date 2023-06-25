@@ -12,11 +12,11 @@ type Inputs = {
   login: string;
 };
 
-export const LoginForm = ({ redirectTo }: { redirectTo: string }): JSX.Element => {
+export const AdminLoginForm = ({ redirectTo }: { redirectTo: string }): JSX.Element => {
   const methods = useForm<Inputs>({ mode: "onChange" });
   const navigate = useNavigate();
   const { t } = useTranslation();
-  const { login } = useAuth();
+  const { adminLogin } = useAuth();
 
   const { formState, watch, setError, clearErrors } = methods;
   const { errors, isValid } = formState;
@@ -27,7 +27,7 @@ export const LoginForm = ({ redirectTo }: { redirectTo: string }): JSX.Element =
 
   const onSubmit = async (credentials: Inputs) => {
     try {
-      await login(credentials);
+      await adminLogin(credentials);
       navigate(redirectTo);
     } catch (err) {
       setError("login", {

@@ -1,5 +1,25 @@
 {
   "PAGE": {
+    "ADMIN": {
+      "TOTAL": {
+        "TEXT": "Participations totales"
+      },
+      "TAB": {
+        "FIRST": {
+          "TEXT": "Classement général"
+        },
+        "SECOND": {
+          "TEXT": "Classement par critère",
+          "CATEGORY": {
+            "FIRST": "Pertinence",
+            "SECOND": "Valeur IA",
+            "THIRD": "Travail d'équipe",
+            "FOURTH": "Temps"
+          }
+        },
+        "THIRD": { "TEXT": "Classement par équipe" }
+      }
+    },
     "NOT_FOUND": {
       "TEXT": "Page non trouvée."
     },
@@ -35,7 +55,8 @@
       },
       "BUTTON": {
         "SUBMIT": {
-          "LABEL": "Connexion"
+          "LABEL": "Connexion",
+          "ERROR": "Connexion refusée, vérifier vos informations ainsi que votre connexion à Internet"
         }
       }
     },

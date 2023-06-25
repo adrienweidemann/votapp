@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 
 import { useLocalStorage } from "@hooks/useLocalStorage";
 import { AuthContext } from "@hooks/Auth/authContext";
-import { login as usersLogin } from "@api/users";
+import { login as usersLogin, adminLogin as adminsLogin } from "@api/users";
 import { AuthenticatedUser } from "@definitions/models/user";
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }): JSX.Element => {
@@ -15,6 +15,12 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }): JSX.E
     navigate("/");
   };
 
+  const adminLogin = async (credentials: { email: string; password: string }): Promise<void> => {
+    const user: AuthenticatedUser = await adminsLogin(credentials);
+    setUser(user);
+    navigate("/admin");
+  };
+
   const logout = (): void => {
     setUser(null);
     navigate("/login", { replace: true });
@@ -23,6 +29,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }): JSX.E
   const value = {
     user,
     login,
+    adminLogin,
     logout
   };
 

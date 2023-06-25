@@ -1,41 +1,27 @@
 import axios from "axios";
-import AxiosMockAdapter from "axios-mock-adapter";
 
 import { HTTP_REQUEST_HEADERS } from "@configs/global";
 import { GetAll } from "@definitions/global";
 import { RatingGrid, RatingCriteriaRating } from "@definitions/models/rating-grids";
+import { RatingCriteriaResult } from "@definitions/models/rating-criteria";
+import { AuthenticatedUser } from "@definitions/models/user";
 
-const instance = axios.create();
-const mock = new AxiosMockAdapter(instance);
+const instance = axios.create({
+  baseURL: process.env.API_URL,
+  headers: HTTP_REQUEST_HEADERS
+});
 
 const wait = (timeout?: number) => {
   return new Promise((resolve) => setTimeout(resolve, timeout));
 };
 
-mock.onGet("/rating-grids").reply<GetAll<RatingGrid>>(200, {
-  count: 5,
-  data: [
-    { id: 1, label: "team1", icon1: "sun.png", icon2: "sun.png" },
-    { id: 2, label: "team2", icon1: "sun.png", icon2: "sun.png" },
-    { id: 3, label: "team3", icon1: "sun.png", icon2: "sun.png" },
-    { id: 4, label: "team4", icon1: "sun.png", icon2: "sun.png" },
-    { id: 5, label: "team5", icon1: "sun.png", icon2: "sun.png" }
-  ]
-});
-
-mock.onPost("/rating-grids/:id/ratings").reply<RatingCriteriaRating[]>(200, [
-  { ratingCriteriaId: 1, rating: 5 },
-  { ratingCriteriaId: 2, rating: 5 },
-  { ratingCriteriaId: 3, rating: 5 },
-  { ratingCriteriaId: 4, rating: 5 },
-  { ratingCriteriaId: 5, rating: 5 }
-]);
-
-export const fetchRatingGrids = async (): Promise<GetAll<RatingGrid>> => {
+export const fetchRatingGrids = async (
+  user: AuthenticatedUser | null
+): Promise<GetAll<RatingGrid>> => {
   try {
     await wait(2000);
     const { data } = await instance.get<GetAll<RatingGrid>>("/rating-grids", {
-      headers: HTTP_REQUEST_HEADERS
+      headers: { ...instance.defaults.headers.common, Authorization: `Bearer ${user?.token}` }
     });
 
     return data;
@@ -51,6 +37,7 @@ export const fetchRatingGrids = async (): Promise<GetAll<RatingGrid>> => {
 };
 
 export const postRatingGridRatings = async (
+  user: AuthenticatedUser | null,
   id: number,
   ratings: RatingCriteriaRating[]
 ): Promise<RatingCriteriaRating[]> => {
@@ -59,9 +46,29 @@ export const postRatingGridRatings = async (
       `/rating-grids/${id}/ratings`,
       ratings,
       {
-        headers: HTTP_REQUEST_HEADERS
+        headers: { ...instance.defaults.headers.common, Authorization: `Bearer ${user?.token}` }
       }
     );
+
+    return data;
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      console.error("error message: ", error.message);
+    } else {
+      console.error("unexpected error: ", error);
+    }
+
+    throw error;
+  }
+};
+
+export const fetchRatingGridsResults = async (
+  user: AuthenticatedUser | null
+): Promise<GetAll<RatingCriteriaResult>> => {
+  try {
+    const { data } = await instance.get<GetAll<RatingCriteriaResult>>(`/rating-grids/results`, {
+      headers: { ...instance.defaults.headers.common, Authorization: `Bearer ${user?.token}` }
+    });
 
     return data;
   } catch (error) {
