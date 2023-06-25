@@ -1,0 +1,77 @@
+{
+  "PAGE": {
+    "ADMIN": {
+      "TOTAL": {
+        "TEXT": "Participations totales"
+      },
+      "TAB": {
+        "FIRST": {
+          "TEXT": "Classement général"
+        },
+        "SECOND": {
+          "TEXT": "Classement par critère",
+          "CATEGORY": {
+            "FIRST": "Pertinence",
+            "SECOND": "Valeur IA",
+            "THIRD": "Travail d'équipe",
+            "FOURTH": "Temps"
+          }
+        },
+        "THIRD": { "TEXT": "Classement par équipe" }
+      }
+    },
+    "NOT_FOUND": {
+      "TEXT": "Page non trouvée."
+    },
+    "THANKS": {
+      "TEXT": "Merci pour votre participation !"
+    },
+    "HOME": {
+      "WELCOME_TEXT": "Bonjour, je suis Bob. Je vais vous accompagner pour ce séminaire. J'espère que vous aurez apprécié cette magnifique journée qui nous réunit tous ensemble. Pour conclure, je vous propose d'évaluer les interventions suivantes.",
+      "BUTTON": {
+        "SUBMIT": {
+          "LABEL": "Envoyer"
+        }
+      }
+    }
+  },
+  "FORM": {
+    "INPUT": {
+      "ERROR": {
+        "REQUIRED": "Veuillez remplir ce champ"
+      }
+    },
+    "LOGIN_FORM": {
+      "TITLE": "CONNEXION",
+      "INPUT": {
+        "EMAIL": {
+          "TITLE": "Email",
+          "PLACEHOLDER": "Email *"
+        },
+        "PASSWORD": {
+          "TITLE": "Mot de passe",
+          "PLACEHOLDER": "Mot de passe *"
+        }
+      },
+      "BUTTON": {
+        "SUBMIT": {
+          "LABEL": "Connexion",
+          "ERROR": "Connexion refusée, vérifier vos informations ainsi que votre connexion à Internet"
+        }
+      }
+    },
+    "RATING_CRITERIA": {
+      "FIRST": "La présentation démontre la pertinence du cas d'usage pour les utilisateurs",
+      "SECOND": "La présentation du cas d'usage met en lumière la valeur ajoutée de l'IA",
+      "THIRD": "La présentation du cas d'usage reflète un bon travail d'équipe",
+      "FOURTH": "La présentation du cas d'usage respecte le temps imparti (3 min)"
+    }
+  },
+  "NAVBAR": {
+    "BUTTON": {
+      "LOGOUT": {
+        "LABEL": "Déconnexion"
+      }
+    }
+  }
+}

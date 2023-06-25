@@ -1,11 +1,12 @@
 {
   "name": "votapp",
+  "private": true,
   "description": "React + Vite app",
   "author": "WEIDEMANN HAEFFELE Adrien",
-  "private": true,
   "version": "0.1.0",
   "type": "module",
   "scripts": {
+    "prepare": "husky install",
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
@@ -13,6 +14,12 @@
   },
   "engines": {
     "node": "^18"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,html}": [
+      "npm run lint",
+      "prettier --write"
+    ]
   },
   "repository": {
     "type": "git",
@@ -22,25 +29,37 @@
     "url": "https://github.com/adrienweidemann/votapp/issues"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@fontsource/open-sans": "^5.0.3",
+    "@headlessui/react": "^1.7.15",
+    "@heroicons/react": "^2.0.18",
+    "@tremor/react": "^3.2.3",
+    "axios": "^1.4.0",
+    "dotenv": "^16.3.1",
+    "i18next": "^23.0.2",
+    "i18next-browser-languagedetector": "^7.0.2",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.44.3",
+    "react-i18next": "^13.0.0",
+    "react-router-dom": "^6.12.1"
   },
   "devDependencies": {
+    "@types/node": "^20.3.1",
     "@types/react": "^18.0.37",
     "@types/react-dom": "^18.0.11",
-    "@typescript-eslint/eslint-plugin": "^5.59.0",
-    "@typescript-eslint/parser": "^5.59.0",
+    "@typescript-eslint/eslint-plugin": "^5.59.11",
+    "@typescript-eslint/parser": "^5.59.11",
     "@vitejs/plugin-react": "^4.0.0",
     "autoprefixer": "^10.4.14",
-    "eslint": "^8.38.0",
+    "eslint": "^8.42.0",
     "eslint-config-prettier": "^8.8.0",
-    "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.3.4",
-    "eslint-plugin-simple-import-sort": "^10.0.0",
     "husky": "^8.0.3",
     "postcss": "^8.4.24",
     "pre-commit": "^1.2.2",

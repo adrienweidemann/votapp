@@ -1,16 +1,21 @@
 # Welcome to VOTAPP 👋
 
-[![Node](https://img.shields.io/badge/node-18-brightgreen.svg?logo=node.js)](https://nodejs.org/)
-[![NPM](https://img.shields.io/badge/npm-9-red.svg?logo=npm)](htps://npmjs.com)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5-blue.svg?logo=typescript)](https://typescriptlang.org/)
-[![React](https://img.shields.io/badge/react-18-lightblue.svg?logo=react)](https://react.dev/)
+[![Node](https://img.shields.io/badge/node-18-black.svg?logo=node.js&color=43853d)](https://nodejs.org/)
+[![NPM](https://img.shields.io/badge/npm-9-black.svg?logo=npm&color=CB0000)](htps://npmjs.com)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-black.svg?logo=typescript&color=3178c6)](https://typescriptlang.org/)
+[![React](https://img.shields.io/badge/react-18-black.svg?logo=react&color=61dafb)](https://react.dev/)
+[![Tailwind](https://img.shields.io/badge/tailwind-3-black.svg?logo=tailwindcss&color=0EA5E9)](https://react.dev/)
 [![License: proprietary](https://img.shields.io/badge/License-proprietary-yellow.svg)](#)
 
 > Votapp - React + Vite app
 
-## TODO
+## TO DO
 
-- TO DO
+- API config
+- Protection SSL
+- Handle GridSet with API call (check in db is user already submitted) - redirect to Thanks page
+- Thanks page
+- Not found page
 
 ## Prerequisites
 
