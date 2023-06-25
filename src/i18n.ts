@@ -1,15 +1,15 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 
-const translationEN = await fetch("/locales/en/translation.json");
-const translationFR = await fetch("/locales/fr/translation.json");
+import translationEN from "@root/locales/en/translation.json";
+import translationFR from "@root/locales/fr/translation.json";
 
 const resources = {
   "en-US": {
-    translation: await translationEN.json()
+    translation: translationEN
   },
   "fr-FR": {
-    translation: await translationFR.json()
+    translation: translationFR
   }
 };
 
