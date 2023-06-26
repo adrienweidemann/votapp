@@ -27,7 +27,7 @@
       "TEXT": "Merci pour votre participation !"
     },
     "HOME": {
-      "WELCOME_TEXT": "Bonjour, je suis Bob. Je vais vous accompagner pour ce séminaire. J'espère que vous aurez apprécié cette magnifique journée qui nous réunit tous ensemble. Pour conclure, je vous propose d'évaluer les interventions suivantes.",
+      "WELCOME_TEXT": "Bonjour, je suis Bob, votre assistant Atelier Séminaire. Je vous aide à attribuer de 1 à 5 étoiles à chaque pitch d’équipe, selon 3 critères. Votre vote est pris en compte lorsque toutes les équipes sont évaluées. A vous de jouer !",
       "BUTTON": {
         "SUBMIT": {
           "LABEL": "Envoyer"
