@@ -1,14 +1,11 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { ChevronDownIcon } from "@heroicons/react/24/solid";
 
 import { useAuth } from "@hooks/Auth/useAuth";
 
 export const Navbar = (): JSX.Element => {
   const { logout } = useAuth();
   const { t } = useTranslation();
-
-  const [toggleDropdown, setToggleDropdown] = useState<boolean>(false);
 
   return (
     <header className="flex justify-end align-center [&_li]:inline-block [&_li]:list-none py-5">
