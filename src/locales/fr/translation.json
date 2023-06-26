@@ -49,8 +49,8 @@
           "PLACEHOLDER": "Email *"
         },
         "PASSWORD": {
-          "TITLE": "Mot de passe",
-          "PLACEHOLDER": "Mot de passe *"
+          "TITLE": "Code d'accès unique",
+          "PLACEHOLDER": "Code d'accès unique *"
         }
       },
       "BUTTON": {
