@@ -235,7 +235,7 @@ export const Admin = (): JSX.Element => {
                       <Bold>Points</Bold>
                     </Text>
                   </Flex>
-                  <BarList data={buildRankingChart()} className="mt-2" />
+                  <BarList data={buildRankingChart()} className="mt-2 bg-primary-400" />
                 </div>
               </TabPanel>
 
