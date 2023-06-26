@@ -17,6 +17,7 @@ body {
   min-height: 100vh;
   background-image: url("/mainBg.jpg");
   background-repeat: repeat;
+  background-attachment: scroll;
 }
 
 @media (prefers-color-scheme: light) {
