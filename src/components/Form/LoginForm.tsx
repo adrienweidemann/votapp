@@ -7,7 +7,6 @@ import { Input } from "@components/Form/Input";
 import { useAuth } from "@hooks/Auth/useAuth";
 
 type Inputs = {
-  email: string;
   password: string;
   login: string;
 };
@@ -27,7 +26,7 @@ export const LoginForm = ({ redirectTo }: { redirectTo: string }): JSX.Element =
 
   const onSubmit = async (credentials: Inputs) => {
     try {
-      await login(credentials);
+      await login({ ...credentials, email: "autologin@gmail.com" });
       navigate(redirectTo);
     } catch (err) {
       setError("login", {
@@ -46,19 +45,6 @@ export const LoginForm = ({ redirectTo }: { redirectTo: string }): JSX.Element =
 
         <div className="text-2xl text-gray-900 font-semibold">
           <h2 className="text-secondary-300">{t("FORM.LOGIN_FORM.TITLE")}</h2>
-        </div>
-
-        <div className="place-items-left">
-          <Input
-            label={t("FORM.LOGIN_FORM.INPUT.PASSWORD.TITLE")}
-            type="text"
-            name="email"
-            placeholder={t("FORM.LOGIN_FORM.INPUT.EMAIL.PLACEHOLDER")}
-            required
-          />
-          {errors.email?.message && (
-            <p className="text-red-700 text-sm px-4 py-3">{errors.email?.message}</p>
-          )}
         </div>
 
         <div className="place-items-left">
