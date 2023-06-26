@@ -135,7 +135,7 @@ export const Admin = (): JSX.Element => {
         if (criteriasData[i].id === result.ratingCriteria.id) {
           criteriasData[i].value += result.rating;
           criteriasData[i].count++;
-          criteriasData[i].avg = criteriasData[i].value / criteriasData[i].count;
+          criteriasData[i].avg = Math.trunc(criteriasData[i].value / criteriasData[i].count * 100) / 100;
         }
       }
     }
@@ -172,7 +172,7 @@ export const Admin = (): JSX.Element => {
               teamRanking[i].data[j].value += result.rating;
               teamRanking[i].data[j].count++;
               teamRanking[i].data[j].avg =
-                teamRanking[i].data[j].value / teamRanking[i].data[j].count;
+                Math.trunc(teamRanking[i].data[j].value / teamRanking[i].data[j].count * 100) / 100;
             }
         }
       }
