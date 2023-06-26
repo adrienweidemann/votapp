@@ -7,8 +7,6 @@
   line-height: 1.5;
   font-weight: 400;
   width: 100vw;
-  background-image: url("/mainBg.jpg");
-  background-repeat: repeat;
 }
 
 body {
@@ -17,6 +15,8 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-image: url("/mainBg.jpg");
+  background-repeat: repeat;
 }
 
 @media (prefers-color-scheme: light) {
