@@ -13,11 +13,11 @@
           "CATEGORY": {
             "FIRST": "Pertinence",
             "SECOND": "Valeur IA",
-            "THIRD": "Travail d'équipe",
             "FOURTH": "Temps"
           }
         },
-        "THIRD": { "TEXT": "Classement par équipe" }
+        "THIRD": { "TEXT": "Classement par équipe" },
+        "FOURTH": { "TEXT": "Classement par critère par équipe" }
       }
     },
     "NOT_FOUND": {
@@ -30,6 +30,7 @@
       "WELCOME_TEXT": "Bonjour, je suis Bob, votre assistant Atelier Séminaire. Je vous aide à attribuer de 1 à 5 étoiles à chaque pitch d’équipe, selon 3 critères. Votre vote est pris en compte lorsque toutes les équipes sont évaluées. A vous de jouer !",
       "BUTTON": {
         "SUBMIT": {
+          "INFO": "Veuillez renseigner chaque critère pour chaque équipe pour continuer",
           "LABEL": "Envoyer"
         }
       }
@@ -63,7 +64,6 @@
     "RATING_CRITERIA": {
       "FIRST": "La présentation démontre la pertinence du cas d'usage pour les utilisateurs",
       "SECOND": "La présentation du cas d'usage met en lumière la valeur ajoutée de l'IA",
-      "THIRD": "La présentation du cas d'usage reflète un bon travail d'équipe",
       "FOURTH": "La présentation du cas d'usage respecte le temps imparti (3 min)"
     }
   },

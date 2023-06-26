@@ -64,7 +64,9 @@ export const RatingGridSet = ({ ratingGrids }: { ratingGrids: RatingGridType[] }
     const timer = setTimeout(() => {
       if (state.index < ratingGrids.length) {
         const gridElement = (
-          <div key={ratingGrids[state.index].id} className="py-3">
+          <div
+            key={ratingGrids[state.index].id}
+            className="py-3 items-center text-center md:items-left md:text-left pb-10">
             <p className="uppercase font-bold text-primary-400">
               <img
                 height={44}

@@ -18,7 +18,7 @@ import {
   AccordionHeader,
   AccordionBody
 } from "@tremor/react";
-import { HeartIcon, UserGroupIcon, ArrowTrendingUpIcon } from "@heroicons/react/24/solid";
+import { HeartIcon, UserGroupIcon, ArrowTrendingUpIcon, UserIcon } from "@heroicons/react/24/solid";
 import { useTranslation } from "react-i18next";
 
 import { fetchRatingGrids, fetchRatingGridsResults } from "@api/rating-grids";
@@ -135,7 +135,8 @@ export const Admin = (): JSX.Element => {
         if (criteriasData[i].id === result.ratingCriteria.id) {
           criteriasData[i].value += result.rating;
           criteriasData[i].count++;
-          criteriasData[i].avg = Math.trunc(criteriasData[i].value / criteriasData[i].count * 100) / 100;
+          criteriasData[i].avg =
+            Math.trunc((criteriasData[i].value / criteriasData[i].count) * 100) / 100;
         }
       }
     }
@@ -172,7 +173,8 @@ export const Admin = (): JSX.Element => {
               teamRanking[i].data[j].value += result.rating;
               teamRanking[i].data[j].count++;
               teamRanking[i].data[j].avg =
-                Math.trunc(teamRanking[i].data[j].value / teamRanking[i].data[j].count * 100) / 100;
+                Math.trunc((teamRanking[i].data[j].value / teamRanking[i].data[j].count) * 100) /
+                100;
             }
         }
       }
@@ -190,6 +192,69 @@ export const Admin = (): JSX.Element => {
               <BarChart
                 className="mt-6"
                 data={teamRankingElt.data}
+                index="name"
+                categories={["avg"]}
+                colors={["primary" as Color]}
+                yAxisWidth={48}
+              />
+            </div>
+          </AccordionBody>
+        </Accordion>
+      );
+    }
+
+    return render;
+  };
+
+  const renderPerCriteriaRanking = (): JSX.Element[] => {
+    const criteriaRanking: { id: number; name: string; data: TremorBarChartFormat[] }[] = [];
+
+    for (const criteria of criterias.data) {
+      criteriaRanking.push({
+        id: criteria.id,
+        name: t(`PAGE.ADMIN.TAB.SECOND.CATEGORY.${criteria.label.split(".").pop()}`),
+        data: []
+      });
+
+      for (const grid of grids.data) {
+        criteriaRanking[criteriaRanking.length - 1].data.push({
+          id: grid.id,
+          name: grid.label,
+          count: 0,
+          value: 0,
+          avg: 0
+        });
+      }
+    }
+
+    for (const result of results.data) {
+      for (let i = 0; i < criteriaRanking.length; i++) {
+        if (criteriaRanking[i].id === result.ratingCriteria.id) {
+          for (let j = 0; j < criteriaRanking[i].data.length; j++)
+            if (criteriaRanking[i].data[j].id === result.ratingGrid.id) {
+              criteriaRanking[i].data[j].value += result.rating;
+              criteriaRanking[i].data[j].count++;
+              criteriaRanking[i].data[j].avg =
+                Math.trunc(
+                  (criteriaRanking[i].data[j].value / criteriaRanking[i].data[j].count) * 100
+                ) / 100;
+            }
+        }
+      }
+    }
+
+    const render = [];
+    let index = 0;
+
+    for (const criteriaRankingElt of criteriaRanking) {
+      render.push(
+        <Accordion key={index++}>
+          <AccordionHeader>{criteriaRankingElt.name}</AccordionHeader>
+          <AccordionBody>
+            <div className="mt-10">
+              <BarChart
+                className="mt-6"
+                data={criteriaRankingElt.data}
                 index="name"
                 categories={["avg"]}
                 colors={["primary" as Color]}
@@ -223,6 +288,9 @@ export const Admin = (): JSX.Element => {
               <Tab className="text-primary-400 hover:text-primary-600" icon={UserGroupIcon}>
                 {t("PAGE.ADMIN.TAB.THIRD.TEXT")}
               </Tab>
+              <Tab className="text-primary-400 hover:text-primary-600" icon={UserIcon}>
+                {t("PAGE.ADMIN.TAB.FOURTH.TEXT")}
+              </Tab>
             </TabList>
             <TabPanels>
               <TabPanel>
@@ -255,6 +323,14 @@ export const Admin = (): JSX.Element => {
               <TabPanel>
                 <div className="mt-10">
                   <AccordionList className="max-w-md mx-auto">{renderTeamRanking()}</AccordionList>
+                </div>
+              </TabPanel>
+
+              <TabPanel>
+                <div className="mt-10">
+                  <AccordionList className="max-w-md mx-auto">
+                    {renderPerCriteriaRanking()}
+                  </AccordionList>
                 </div>
               </TabPanel>
             </TabPanels>

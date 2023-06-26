@@ -24,7 +24,7 @@ export const Rating = ({
   };
 
   return (
-    <div className="flex flex-row-reverse justify-end items-center">
+    <div className="flex flex-row-reverse justify-center md:justify-end items-center">
       <svg
         onClick={() => handleOnClick(5)}
         xmlns="http://www.w3.org/2000/svg"

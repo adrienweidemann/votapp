@@ -156,6 +156,9 @@ export const Home = (): JSX.Element => {
                 <RatingGridSet ratingGrids={ratingGrids} />
               </div>
               <div className="flex flex-col p-2 items-center">
+                {(!isSubmittable || !isValid) && (
+                  <p className="text-white text-center pb-5">{t("PAGE.HOME.BUTTON.SUBMIT.INFO")}</p>
+                )}
                 <button
                   type="submit"
                   disabled={!isSubmittable || !isValid}
