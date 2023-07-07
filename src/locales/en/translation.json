@@ -1,0 +1,77 @@
+{
+  "PAGE": {
+    "ADMIN": {
+      "TOTAL": {
+        "TEXT": "Participations count"
+      },
+      "TAB": {
+        "FIRST": {
+          "TEXT": "Global ranking"
+        },
+        "SECOND": {
+          "TEXT": "Criteria ranking",
+          "CATEGORY": {
+            "FIRST": "Relevance",
+            "SECOND": "AI value",
+            "FOURTH": "Timing"
+          }
+        },
+        "THIRD": { "TEXT": "Team ranking" },
+        "FOURTH": { "TEXT": "Per criteria per team ranking" }
+      }
+    },
+    "NOT_FOUND": {
+      "TEXT": "Page not found."
+    },
+    "THANKS": {
+      "TEXT": "Thanks for your participation!"
+    },
+    "HOME": {
+      "WELCOME_TEXT": "Hello, I'm Daniel. I will go though with you for this seminar. I hope you enjoyed this wonderful day that brings us all together. To conclude, I suggest that you evaluate the following interventions.",
+      "BUTTON": {
+        "SUBMIT": {
+          "INFO": "Please, fill each criteria for each team to continue",
+          "LABEL": "Send"
+        }
+      }
+    }
+  },
+  "FORM": {
+    "INPUT": {
+      "ERROR": {
+        "REQUIRED": "This field is required"
+      }
+    },
+    "LOGIN_FORM": {
+      "TITLE": "SIGN IN",
+      "INPUT": {
+        "EMAIL": {
+          "TITLE": "Email address",
+          "PLACEHOLDER": "Email *"
+        },
+        "PASSWORD": {
+          "TITLE": "Password",
+          "PLACEHOLDER": "Password *"
+        }
+      },
+      "BUTTON": {
+        "SUBMIT": {
+          "LABEL": "Sign in",
+          "ERROR": "Connection refused, please check your credentials and internet connection"
+        }
+      }
+    },
+    "RATING_CRITERIA": {
+      "FIRST": "The presentation demonstrates the relevance of the use case for users",
+      "SECOND": "The presentation of the use case highlights the added value of AI",
+      "FOURTH": "The presentation of the use case respects the allotted time (3min)"
+    }
+  },
+  "NAVBAR": {
+    "BUTTON": {
+      "LOGOUT": {
+        "LABEL": "Logout"
+      }
+    }
+  }
+}
